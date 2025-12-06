@@ -21,8 +21,8 @@ ERROR_DIR.mkdir(parents=True, exist_ok=True)
 MODEL_PATH = Path(__file__).parent.parent / "models" / "yolov8n-face.pt" # path object
 
 if not MODEL_PATH.exists():  # check if file exists
-    print("Downloading YOLOv8-face model...")
-    model = YOLO("yolov8n-face")  # this fetches the model from Ultralytics
+    print("Downloading YOLOv8-Face model...")
+    model = YOLO("https://github.com/akanametov/yolov8-face/releases/download/v0.0.0/yolov8n-face.pt")
     MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)  # make sure models/ folder exists
     model.save(MODEL_PATH)        # saves it to models/
 else:
@@ -32,7 +32,14 @@ else:
 # --- HELPER TO SAVE FACE COORDINATES TO EXIF ---
 def save_faces_exif(image_path, faces):
     img = Image.open(image_path)
-    exif_dict = piexif.load(img.info.get("exif", b""))
+    exif_data = img.info.get("exif", b"")
+    
+    # Load or create EXIF data
+    if exif_data:
+        exif_dict = piexif.load(exif_data)
+    else:
+        exif_dict = {"0th": {}, "Exif": {}, "GPS": {}, "1st": {}}
+    
     faces_str = "; ".join([f"{x},{y},{w},{h}" for (x, y, w, h) in faces])
     exif_dict["0th"][piexif.ImageIFD.ImageDescription] = faces_str.encode("utf-8")
     exif_bytes = piexif.dump(exif_dict)
