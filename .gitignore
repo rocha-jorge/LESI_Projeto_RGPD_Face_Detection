@@ -1,0 +1,24 @@
+# Virtual environment
+venv_face_detection/
+
+# Model files
+models/
+
+# Photo folders
+photo_input/
+photo_output/
+photo_detection_output/
+photo_detection_error/
+photo_anonymization_output/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
