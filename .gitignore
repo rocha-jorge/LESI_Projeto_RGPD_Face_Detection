@@ -22,6 +22,9 @@ photo_anonymization_output/
 *.webp
 *.heic
 
+# Ultralytics / model cache
+weights/
+
 # Python
 __pycache__/
 *.py[cod]

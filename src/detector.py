@@ -20,6 +20,15 @@ ERROR_DIR.mkdir(parents=True, exist_ok=True)
 # --- LOAD MODEL ---
 MODEL_PATH = Path(__file__).parent.parent / "models" / "yolov8n-face.pt" # path object
 
+# If the library cached the downloaded model under a `weights/` folder, move it
+# to our `models/` folder so we keep a single canonical location and avoid
+# committing the cache to the repo.
+WEIGHTS_CACHE = Path(__file__).parent.parent / "weights" / MODEL_PATH.name
+if not MODEL_PATH.exists() and WEIGHTS_CACHE.exists():
+    MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
+    WEIGHTS_CACHE.replace(MODEL_PATH)
+    print(f"Moved cached weights from {WEIGHTS_CACHE} to {MODEL_PATH}")
+
 if not MODEL_PATH.exists():  # check if file exists
     print("Downloading YOLOv8-Face model...")
     model = YOLO("https://github.com/akanametov/yolov8-face/releases/download/v0.0.0/yolov8n-face.pt")
