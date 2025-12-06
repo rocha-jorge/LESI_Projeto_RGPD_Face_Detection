@@ -11,6 +11,17 @@ photo_detection_output/
 photo_detection_error/
 photo_anonymization_output/
 
+# Photo file types
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tif
+*.tiff
+*.gif
+*.webp
+*.heic
+
 # Python
 __pycache__/
 *.py[cod]
