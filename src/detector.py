@@ -11,8 +11,8 @@ import piexif
 
 # --- CONFIG ---
 SRC_DIR = Path(__file__).parent.parent / "photo_input"
-OUTPUT_DIR = Path(__file__).parent.parent / "photo_detection_output"
-ERROR_DIR = Path(__file__).parent.parent / "photo_detection_error"
+OUTPUT_DIR = Path(__file__).parent.parent / "photo_output"
+ERROR_DIR = Path(__file__).parent.parent / "photo_error"
 SAVE_EXIF = True  # set False if you don't want to save metadata
 
 # Ensure output directories exist
@@ -58,7 +58,7 @@ def move_to_error(src_path, output_path, error_dir, reason=""):
 def detector(img_file: Path, model: YOLO) -> list:
     """
     Detect faces on a single image, save EXIF coordinates, and write the
-    processed image to photo_detection_output with same filename.
+    processed image to photo_output with same filename.
 
     Returns list of (x, y, w, h) face boxes.
     """
@@ -68,11 +68,9 @@ def detector(img_file: Path, model: YOLO) -> list:
         return []
 
     start_time = time.time()
-    output_path = OUTPUT_DIR / img_file.name
-    print(f"\nMoving {img_file.name} to output folder...")
-    shutil.copy2(str(img_file), str(output_path))
-
-    print(f"Processing {img_file.name}...")
+    # Operate directly on the provided path (processing copy in photo_output)
+    output_path = img_file
+    print(f"\nProcessing {output_path.name}...")
     img = cv2.imread(str(output_path))
     if img is None:
         print(f"Error: could not read {output_path.name}. Moving to error folder.")
@@ -99,13 +97,10 @@ def detector(img_file: Path, model: YOLO) -> list:
         save_faces_exif(output_path, faces_coords)
         print("Saved face coordinates to EXIF.")
 
-    # Remove original file from input folder
-    if img_file.exists():
-        img_file.unlink()
-        print(f"Removed {img_file.name} from input folder.")
+    # Do not delete or move any files here; watcher manages moves
 
     elapsed_time = time.time() - start_time
-    print(f"✓ Detection completed for {img_file.name} in {elapsed_time:.2f} seconds, found {len(faces_coords)} face(s).")
+    print(f"✓ Detection completed for {output_path.name} in {elapsed_time:.2f} seconds, found {len(faces_coords)} face(s).")
     return faces_coords
 
 

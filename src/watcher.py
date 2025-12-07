@@ -14,26 +14,26 @@ import os
 import sys
 import time
 import signal
-import subprocess
+import shutil
 from ultralytics import YOLO
 from pathlib import Path
+from PIL import Image
+from convert_image import ensure_processable_image
 
 
 ROOT = Path(__file__).parent.parent
-DETECT_OUTPUT = ROOT / "photo_detection_output"
 PHOTO_OUTPUT = ROOT / "photo_output"
-ID_SCRIPT = ROOT / "src" / "generate_photo_id.py"
+PHOTO_ERROR = ROOT / "photo_error"
 
 from detector import detector
 from face_blur import face_blur
-from generate_photo_id import generate_photo_id
+from rename_with_timestamp_id import generate_timestamp_name, rename_photo
 from list_images import list_images
+from move_to_error import move_to_error
 
 # Configure via environment variables (use absolute paths when mounting volumes)
 INPUT_DIR = Path(os.environ.get("PHOTO_INPUT", ROOT / "photo_input"))
 POLL_INTERVAL = int(os.environ.get("POLL_INTERVAL", "5"))
-
-
 
 # Flag used by the main loop to know when to exit.
 # When a shutdown signal is received (CTRL+C or service stop),
@@ -57,8 +57,8 @@ def main():
     # Startup: ensure required folders exist and log the monitored path
     print(f"Watcher starting. Monitoring: {INPUT_DIR}")
     INPUT_DIR.mkdir(parents=True, exist_ok=True)
-    DETECT_OUTPUT.mkdir(parents=True, exist_ok=True)
     PHOTO_OUTPUT.mkdir(parents=True, exist_ok=True)
+    PHOTO_ERROR.mkdir(parents=True, exist_ok=True)
 
     # Initialize YOLO once (kept in memory for the life of the process)
     model_path = ROOT / "models" / "yolov8n-face.pt"
@@ -74,50 +74,90 @@ def main():
         model.save(model_path)
     else:
         model = YOLO(str(model_path))
+    print("Model initialized and ready.")
 
-    copied_originals: set[str] = set()
     while not stop_requested:
         try:
             # Poll the input directory for new images
-            images = list_images(INPUT_DIR)
+            images = list_images(INPUT_DIR)     # image paths in input dir
             if images:
                 print(f"Found {len(images)} image(s). Processing...")
                 for img in images:
+                   
+                    print(f"\nProcessing image: {img.name}")
+
+                    # 1) Generate and include timestamp ID in filename
                     try:
-                        # 1) Generate ID (timestamps/unique naming) in-process.
-                        try:
-                            _ = generate_photo_id(img)
-                        except Exception as e:
-                            print(f"Failed to generate ID for {img.name}: {e}")
-
-                        # 2) Copy original to output (traceability/backups)
-                        try:
-                            import shutil
-                            original_copy = PHOTO_OUTPUT / f"original_{img.name}"
-                            if img.name not in copied_originals and not original_copy.exists():
-                                print(f"Copying original to output: {img.name} -> {original_copy.name}")
-                                shutil.copy2(str(img), str(original_copy))
-                                copied_originals.add(img.name)
-                            else:
-                                print(f"Original already copied: {img.name}")
-                        except Exception as e:
-                            print(f"Failed to copy original for {img.name}: {e}")
-
-                        # 3) Detect faces; only blur when detector reports faces
-                        faces = detector(img, model)
-
-                        if isinstance(faces, (list, tuple)) and len(faces) > 0:
-                            detected_path = DETECT_OUTPUT / img.name
-                            if detected_path.exists():
-                                print(f"Blurring faces in: {img.name}")
-                                face_blur(detected_path)
-                            else:
-                                print(f"Detected image not found at {detected_path}")
-                        else:
-                            print(f"No faces reported by detector for {img.name}; skipping blur")
-
+                        new_name = generate_timestamp_name(img)
+                        img = rename_photo(img, INPUT_DIR, new_name)
+                        print(f"Renamed: {img} to {new_name}")
                     except Exception as e:
-                        print(f"Error processing {img.name}: {e}")
+                        print(f"Failed generating and/or include the timestamp ID for {img.name} name: {e}")
+                        move_to_error(img, PHOTO_ERROR)
+                        continue  # Skip all the steps for this image, jump to move decision
+
+                    # 2) Copy original to output folder or to error folder if copy fails
+                    try:
+                        copy_original_to_output = PHOTO_OUTPUT / f"original_{img.name}"
+                        print(f"Copying original to output: {img.name} -> {copy_original_to_output.name}")
+                        shutil.copy2(str(img), str(copy_original_to_output))
+                    except Exception as e:
+                        print(f"Failed to copy original {img.name} to the output folder: {e}")
+                        move_to_error(img, PHOTO_ERROR)
+                        continue  # Skip all the steps for this image, jump to move decision
+
+                    # 3) If BMP/GIF, convert to JPEG to enable stable metadata handling
+                    try:
+                        ext = img.suffix.lower()
+                        if ext in {".bmp", ".gif"}:
+                            print(f"Image {img.name} is {ext}. Converting to JPEG in order to enable metadata insertion.")
+                            img = ensure_processable_image(img, INPUT_DIR)
+                        else:
+                            print(f"Image {img.name} is in {ext} format. Conversion to JPEG not required for metadata insertion.")
+                    except Exception as e:
+                        print(f"Warning: Could not determine the image type for {img.name}: {e}.")
+                        move_to_error(img, PHOTO_ERROR)
+                        continue  # Skip all the steps for this image, jump to move decision
+
+                    # 4) Detect faces on the processing copy
+                    try:
+                        faces = detector(img, model)
+                        if not faces:
+                            print(f"No faces detected in: {img.name}")
+                        else :
+                            print(f"Detected {len(faces)} face(s) in: {img.name}")
+                    except Exception as e:
+                        print(f"Warning: Could not apply face detection for {img.name}: {e}.")
+                        move_to_error(img, PHOTO_ERROR)
+                        continue  # Skip all the steps for this image, jump to move decision
+
+                    # 5) Blur faces if any detected
+                    try:
+                        if len(faces) > 0:
+                            print(f"Blurring faces in: {img.name}")
+                            success = face_blur(img)
+                            if success:
+                                print(f"Successfully blurred faces in: {img.name}")
+                            else:
+                                print(f"Failed to blur faces in: {img.name}")
+                                move_to_error(img, PHOTO_ERROR)
+                                continue  # VER BEM O QUE ESTE CONTINUE ESTA A FAZER, PODE SER MELHOR USAR A MOVE_TO_ERROR
+                        else:
+                            print(f"No faces reported by detector for {img.name}. Skipping blur")
+                    except Exception as e:
+                        print(f"Warning: Could not evaluate or apply face blur for {img.name}: {e}.")
+                        move_to_error(img, PHOTO_ERROR)
+                        continue  # Skip all the steps for this image, jump to move decision
+
+                    # 6) Move the processed photo to the output folder
+                    try:
+                        destination_file_path = PHOTO_OUTPUT / os.path.basename(img)
+                        shutil.move(str(img), str(destination_file_path))
+                        print(f"Moving photo from {img} to {str(destination_file_path)}")
+                        print(f"✓ Successfully processed and moved: {img.name}")
+                    except Exception as e:
+                        print(f"Warning: unable to move the photo to the output folder: {e}")
+                        move_to_error(img, PHOTO_ERROR)
 
             # Sleep between polls to avoid busy-waiting
             time.sleep(POLL_INTERVAL)

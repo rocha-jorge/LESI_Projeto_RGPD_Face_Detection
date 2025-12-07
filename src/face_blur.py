@@ -81,13 +81,12 @@ def face_blur(img_file: Path) -> bool:
         print(f"\nNo faces found in EXIF for {img_file.name}")
         return False
 
-    output_path = ANONYMIZATION_OUTPUT_DIR / img_file.name
+    # Overwrite the processing copy in photo_output
+    output_path = img_file
     print(f"\nProcessing {img_file.name}...")
     try:
         blur_faces(img_file, output_path, faces)
         print(f"Anonymized image saved to {output_path.name}")
-        shutil.move(str(img_file), str(ANONYMIZATION_OUTPUT_DIR / f"original_{img_file.name}"))
-        print(f"Moved original to output folder as backup.")
         elapsed_time = time.time() - start_time
         print(f"✓ Completed in {elapsed_time:.2f} seconds")
         return True
