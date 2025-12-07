@@ -2,13 +2,14 @@ import os
 import shutil
 import time
 from pathlib import Path
+import sys
 import cv2
 from PIL import Image
 import piexif
 
 # --- CONFIG ---
 DETECTION_OUTPUT_DIR = Path(__file__).parent.parent / "photo_detection_output"
-ANONYMIZATION_OUTPUT_DIR = Path(__file__).parent.parent / "photo_anonymization_output"
+ANONYMIZATION_OUTPUT_DIR = Path(__file__).parent.parent / "photo_output"
 ERROR_DIR = Path(__file__).parent.parent / "photo_detection_error"
 BLUR_STRENGTH = 100  # Higher value = stronger blur
 
@@ -67,35 +68,43 @@ def blur_faces(image_path, output_path, faces):
     
     cv2.imwrite(str(output_path), img)
 
-# --- PROCESS IMAGES ---
-for img_file in DETECTION_OUTPUT_DIR.glob("*.*"):
+def face_blur(img_file: Path) -> bool:
+    """Anonymize a single detected image using EXIF coordinates.
+    Returns True if anonymization succeeded, else False.
+    """
     if img_file.suffix.lower() not in [".jpg", ".jpeg", ".png", ".bmp"]:
-        continue
+        return False
 
     start_time = time.time()
-    
-    # Get face coordinates from EXIF
     faces = get_faces_from_exif(img_file)
-    
     if not faces:
         print(f"\nNo faces found in EXIF for {img_file.name}")
-        continue
-    
-    # Create output path
+        return False
+
     output_path = ANONYMIZATION_OUTPUT_DIR / img_file.name
     print(f"\nProcessing {img_file.name}...")
-    
     try:
         blur_faces(img_file, output_path, faces)
         print(f"Anonymized image saved to {output_path.name}")
-        
-        # Move original to anonymization folder as backup
         shutil.move(str(img_file), str(ANONYMIZATION_OUTPUT_DIR / f"original_{img_file.name}"))
-        print(f"Moved original to anonymization folder as backup.")
-        
+        print(f"Moved original to output folder as backup.")
         elapsed_time = time.time() - start_time
         print(f"✓ Completed in {elapsed_time:.2f} seconds")
-    
+        return True
     except Exception as e:
         print(f"Error processing {img_file.name}: {e}. Moving to error folder.")
         move_to_error(img_file, output_path, ERROR_DIR, f"Anonymization error: {e}")
+        return False
+
+
+# --- SCRIPT ENTRY: optional single-file CLI ---
+if __name__ == "__main__":
+    single_file = None
+    if len(sys.argv) > 1:
+        single_file = Path(sys.argv[1])
+        if not single_file.is_absolute():
+            single_file = (Path(__file__).parent.parent / single_file).resolve()
+
+    files_iter = [single_file] if single_file else DETECTION_OUTPUT_DIR.glob("*.*")
+    for img in files_iter:
+        face_blur(img)

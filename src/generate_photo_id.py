@@ -8,6 +8,7 @@ For each photo in photo_input/:
 """
 from pathlib import Path
 import shutil
+import sys
 from datetime import datetime
 
 # --- CONFIG ---
@@ -20,8 +21,17 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 # --- PROCESS IMAGES ---
 def main():
     processed_count = 0
-    
-    for img_file in INPUT_DIR.glob("*.*"):
+
+    # Optional: process a single file passed as argument
+    single_file = None
+    if len(sys.argv) > 1:
+        single_file = Path(sys.argv[1])
+        if not single_file.is_absolute():
+            single_file = (Path(__file__).parent.parent / single_file).resolve()
+
+    files_iter = [single_file] if single_file else INPUT_DIR.glob("*.*")
+
+    for img_file in files_iter:
         if img_file.suffix.lower() not in [".jpg", ".jpeg", ".png", ".bmp"]:
             print(f"Skipping unsupported format: {img_file.name}")
             continue
