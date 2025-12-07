@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  face-pipeline:
+    build: .
+    image: face-pipeline:latest
+    restart: unless-stopped
+    volumes:
+      - ./photo_input:/app/photo_input
+      - ./photo_detection_output:/app/photo_detection_output
+      - ./photo_detection_error:/app/photo_detection_error
+      - ./photo_anonymization_output:/app/photo_anonymization_output
+      - ./models:/app/models
+    environment:
+      - PHOTO_INPUT=/app/photo_input
+      - POLL_INTERVAL=5
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
