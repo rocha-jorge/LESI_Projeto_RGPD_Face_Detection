@@ -18,7 +18,24 @@ OUTPUT_DIR = Path(__file__).parent.parent / "photo_output"
 # Ensure output directory exists
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# --- PROCESS IMAGES ---
+# --- API: single-file ID generation ---
+def generate_photo_id(img_file: Path) -> str:
+    """Generate a timestamp-based ID for one image.
+
+        Returns the new filename with ID appended (does not move/copy the original).
+        Watcher or caller is responsible for copying backups to photo_output.
+        """
+    if img_file.suffix.lower() not in [".jpg", ".jpeg", ".png", ".bmp"]:
+        raise ValueError(f"Unsupported format: {img_file.name}")
+
+    timestamp_ms = int(datetime.now().timestamp() * 1000)
+    name_without_ext = img_file.stem
+    new_name = f"{name_without_ext}_{timestamp_ms}{img_file.suffix}"
+
+    return new_name
+
+
+# --- CLI: process images in a folder or a single file ---
 def main():
     processed_count = 0
 
@@ -36,25 +53,17 @@ def main():
             print(f"Skipping unsupported format: {img_file.name}")
             continue
         
-        # Generate timestamp in milliseconds
+        # Generate ID only (no copying performed here)
         timestamp_ms = int(datetime.now().timestamp() * 1000)
-        
-        # Create new filename: original_name_<timestamp>.extension
         name_without_ext = img_file.stem
         new_name = f"{name_without_ext}_{timestamp_ms}{img_file.suffix}"
         
-        # Create backup in photo_output with "_original" suffix
-        backup_name = f"{new_name.replace(img_file.suffix, '')}_original{img_file.suffix}"
-        backup_path = OUTPUT_DIR / backup_name
-        
         print(f"\nProcessing: {img_file.name}")
         print(f"  Generated ID: {new_name}")
-        print(f"  Creating backup: {backup_name}")
+        print(f"  (Caller will handle copying backup)")
         
         try:
-            # Copy original to output folder as backup
-            shutil.copy2(str(img_file), str(backup_path))
-            print(f"  ✓ Backup created in photo_output/")
+            # No file operations here; just report the ID
             processed_count += 1
         except Exception as e:
             print(f"  ✗ Error creating backup: {e}")
