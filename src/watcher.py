@@ -17,7 +17,7 @@ import signal
 import subprocess
 from ultralytics import YOLO
 from pathlib import Path
-from typing import List
+
 
 ROOT = Path(__file__).parent.parent
 DETECT_OUTPUT = ROOT / "photo_detection_output"
@@ -27,13 +27,13 @@ ID_SCRIPT = ROOT / "src" / "generate_photo_id.py"
 from detector import detector
 from face_blur import face_blur
 from generate_photo_id import generate_photo_id
+from list_images import list_images
 
 # Configure via environment variables (use absolute paths when mounting volumes)
 INPUT_DIR = Path(os.environ.get("PHOTO_INPUT", ROOT / "photo_input"))
 POLL_INTERVAL = int(os.environ.get("POLL_INTERVAL", "5"))
 
-# file extensions to consider
-EXTENSIONS: List[str] = [".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff", ".webp", ".gif", ".heic"]
+
 
 # Flag used by the main loop to know when to exit.
 # When a shutdown signal is received (CTRL+C or service stop),
@@ -50,14 +50,7 @@ def handle_sigterm(signum, frame):
 signal.signal(signal.SIGTERM, handle_sigterm)
 signal.signal(signal.SIGINT, handle_sigterm)
 
-def list_images(directory: Path) -> list[Path]:
-    """Return all image files in a directory matching supported extensions.
 
-    If the directory doesn't exist, return an empty list to avoid errors.
-    """
-    if not directory.exists():
-        return []
-    return [p for p in directory.iterdir() if p.is_file() and p.suffix.lower() in EXTENSIONS]
 
 
 def main():
@@ -112,10 +105,6 @@ def main():
 
                         # 3) Detect faces; only blur when detector reports faces
                         faces = detector(img, model)
-                        if isinstance(faces, (list, tuple)):
-                            print(f"Detection completed for {img.name}, found {len(faces)} face(s).")
-                        else:
-                            print(f"Detection completed for {img.name}, unexpected faces type {type(faces).__name__}.")
 
                         if isinstance(faces, (list, tuple)) and len(faces) > 0:
                             detected_path = DETECT_OUTPUT / img.name
@@ -126,17 +115,19 @@ def main():
                                 print(f"Detected image not found at {detected_path}")
                         else:
                             print(f"No faces reported by detector for {img.name}; skipping blur")
+
                     except Exception as e:
                         print(f"Error processing {img.name}: {e}")
+
             # Sleep between polls to avoid busy-waiting
             time.sleep(POLL_INTERVAL)
+
         except Exception as e:
             print(f"Watcher error: {e}")
             # Even on unexpected errors, keep polling after a short delay
             time.sleep(POLL_INTERVAL)
 
     print("Stop requested — watcher exiting")
-
 
 if __name__ == "__main__":
     main()
