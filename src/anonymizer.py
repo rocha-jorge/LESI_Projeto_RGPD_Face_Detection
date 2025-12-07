@@ -1,5 +1,6 @@
 import os
 import shutil
+import time
 from pathlib import Path
 import cv2
 from PIL import Image
@@ -71,6 +72,8 @@ for img_file in DETECTION_OUTPUT_DIR.glob("*.*"):
     if img_file.suffix.lower() not in [".jpg", ".jpeg", ".png", ".bmp"]:
         continue
 
+    start_time = time.time()
+    
     # Get face coordinates from EXIF
     faces = get_faces_from_exif(img_file)
     
@@ -89,6 +92,9 @@ for img_file in DETECTION_OUTPUT_DIR.glob("*.*"):
         # Move original to anonymization folder as backup
         shutil.move(str(img_file), str(ANONYMIZATION_OUTPUT_DIR / f"original_{img_file.name}"))
         print(f"Moved original to anonymization folder as backup.")
+        
+        elapsed_time = time.time() - start_time
+        print(f"✓ Completed in {elapsed_time:.2f} seconds")
     
     except Exception as e:
         print(f"Error processing {img_file.name}: {e}. Moving to error folder.")

@@ -1,6 +1,7 @@
 # src/detector.py
 import os
 import shutil
+import time
 from pathlib import Path
 from ultralytics import YOLO
 import cv2
@@ -70,6 +71,8 @@ for img_file in SRC_DIR.glob("*.*"):
         move_to_error(img_file, None, ERROR_DIR, "Unsupported file extension")
         continue
 
+    start_time = time.time()
+    
     # Move image to output directory
     output_path = OUTPUT_DIR / img_file.name
     print(f"\nMoving {img_file.name} to output folder...")
@@ -105,3 +108,6 @@ for img_file in SRC_DIR.glob("*.*"):
     # Remove original file from input folder
     img_file.unlink()
     print(f"Removed {img_file.name} from input folder.")
+    
+    elapsed_time = time.time() - start_time
+    print(f"✓ Detection completed in {elapsed_time:.2f} seconds")

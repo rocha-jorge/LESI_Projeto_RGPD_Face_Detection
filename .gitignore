@@ -25,6 +25,9 @@ photo_anonymization_output/
 # Ultralytics / model cache
 weights/
 
+# Docker image tarball (offline delivery)
+*.tar
+
 # Python
 __pycache__/
 *.py[cod]
