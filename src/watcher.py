@@ -10,14 +10,33 @@ Notes:
 - ID generation is always performed before copying/detection.
 - The model is kept in memory for efficiency (single initialization).
 """
+
+
+
+# ADICIONAR 
+
+# Configurable thresholds: Add env/config for detection confidence, IoU, min face size, and blur strength. Makes results tunable without code changes.
+# Structured logging: Replace prints with Python logging (levels, file handlers with rotation). Optionally add JSON logs for easy ingestion.
+# evitar processar ficheiros que ainda não acabaram de ser escritos na pasta de input // Ready file detection: Avoid processing partially copied files by verifying file size is stable (e.g., unchanged across N checks) before processing.
+
+# Non-JPEG metadata: EXIF on PNG/WebP isn’t standard. Keep EXIF for JPEG/TIFF, but add XMP embedding for PNG/WebP to preserve face boxes cross-format. Sidecar JSON as a fallback if XMP lib isn’t available.
+# HEIC/HEIF support: You list “.heic” as acceptable — add pillow-heif to read and convert to JPEG/PNG for processing and metadata.
+
+# GPU/CPU selection: Env flag to force CPU if CUDA is missing; log the selected device for clarity.
+
+# Unit tests: For generate_timestamp_name, rename_photo, ensure_processable_image, EXIF round-trip (JPEG), and XMP embedding (PNG).
+# E2E harness: A small scripted test that drops 3–5 images (no faces + faces of different sizes) and verifies expected outputs in photo_output with timings.
+
+# EXIF hygiene: After you write face-location metadata, consider stripping other PII EXIF tags (GPS, camera serial) unless explicitly needed.
+
+# Filesystem events: Replace polling with watchdog for instant reaction and less CPU (still keep a fallback polling mode).
+
 import os
 import sys
 import time
 import signal
 import shutil
-from ultralytics import YOLO
 from pathlib import Path
-from PIL import Image
 from convert_image import ensure_processable_image
 
 
@@ -30,6 +49,7 @@ from face_blur import face_blur
 from rename_with_timestamp_id import generate_timestamp_name, rename_photo
 from list_images import list_images
 from move_to_error import move_to_error
+from setup_environment import setup_environment_and_model
 
 # Configure via environment variables (use absolute paths when mounting volumes)
 INPUT_DIR = Path(os.environ.get("PHOTO_INPUT", ROOT / "photo_input"))
@@ -41,7 +61,7 @@ POLL_INTERVAL = int(os.environ.get("POLL_INTERVAL", "5"))
 stop_requested = False
 
 # Signal handler: flips the flag when termination/interruption is requested.
-def handle_sigterm(signum, frame):
+def handle_sigterm(_signum, _frame):
     global stop_requested
     stop_requested = True
 
@@ -51,30 +71,11 @@ signal.signal(signal.SIGTERM, handle_sigterm)
 signal.signal(signal.SIGINT, handle_sigterm)
 
 
-
+# setup_environment_and_model now lives in src/setup_environment.py
 
 def main():
-    # Startup: ensure required folders exist and log the monitored path
-    print(f"Watcher starting. Monitoring: {INPUT_DIR}")
-    INPUT_DIR.mkdir(parents=True, exist_ok=True)
-    PHOTO_OUTPUT.mkdir(parents=True, exist_ok=True)
-    PHOTO_ERROR.mkdir(parents=True, exist_ok=True)
-
-    # Initialize YOLO once (kept in memory for the life of the process)
-    model_path = ROOT / "models" / "yolov8n-face.pt"
-    weights_cache = ROOT / "weights" / model_path.name
-    if not model_path.exists() and weights_cache.exists():
-        model_path.parent.mkdir(parents=True, exist_ok=True)
-        weights_cache.replace(model_path)
-        print(f"Moved cached weights from {weights_cache} to {model_path}")
-    if not model_path.exists():
-        print("Downloading YOLOv8-Face model...")
-        model = YOLO("https://github.com/akanametov/yolov8-face/releases/download/v0.0.0/yolov8n-face.pt")
-        model_path.parent.mkdir(parents=True, exist_ok=True)
-        model.save(model_path)
-    else:
-        model = YOLO(str(model_path))
-    print("Model initialized and ready.")
+    # Setup environment and initialize YOLO once (kept in memory for the life of the process)
+    model = setup_environment_and_model(INPUT_DIR)
 
     while not stop_requested:
         try:
@@ -96,7 +97,7 @@ def main():
                         img = rename_photo(img, INPUT_DIR, new_name)
                         print(f"Renamed: {img} to {new_name}")
                     except Exception as e:
-                        print(f"Failed generating and/or include the timestamp ID for {img.name} name: {e}")
+                        print(f"Failed generating and/or including the timestamp ID for {img.name} name: {e}")
                         move_to_error(img, PHOTO_ERROR)
                         continue  # Skip all the steps for this image, jump to move decision
 
@@ -135,7 +136,7 @@ def main():
                         move_to_error(img, PHOTO_ERROR)
                         continue  # Skip all the steps for this image, jump to move decision
 
-                    # 5) Blur faces if any detected (pass faces directly for speed)
+                    # 5) Blur faces if any detected
                     try:
                         if len(faces) > 0:
                             print(f"Blurring faces in: {img.name}")
