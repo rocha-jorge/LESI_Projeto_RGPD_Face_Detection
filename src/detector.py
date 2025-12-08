@@ -46,14 +46,6 @@ def save_faces_exif(image_path, faces):
     exif_bytes = piexif.dump(exif_dict)
     img.save(image_path, exif=exif_bytes)
 
-# --- HELPER TO MOVE IMAGE TO ERROR FOLDER ---
-def move_to_error(src_path, output_path, error_dir, reason=""):
-    error_path = error_dir / src_path.name
-    if output_path.exists():
-        shutil.move(str(output_path), str(error_path))
-    if src_path.exists():
-        src_path.unlink()
-    print(f"Moved {src_path.name} to error folder. {reason}")
 
 def detector(img_file: Path, model: YOLO) -> list:
     """

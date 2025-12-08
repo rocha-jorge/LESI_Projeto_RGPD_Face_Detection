@@ -83,8 +83,12 @@ def main():
             if images:
                 print(f"Found {len(images)} image(s). Processing...")
                 for img in images:
-                   
-                    print(f"\nProcessing image: {img.name}")
+
+                    start_ts = time.perf_counter()
+
+                    print("\n" + "═" * 60)
+                    print(f"▶ Processing: {img.name}")
+                    print("═" * 60)
 
                     # 1) Generate and include timestamp ID in filename
                     try:
@@ -96,7 +100,7 @@ def main():
                         move_to_error(img, PHOTO_ERROR)
                         continue  # Skip all the steps for this image, jump to move decision
 
-                    # 2) Copy original to output folder or to error folder if copy fails
+                    # 2) Copy original to output folder
                     try:
                         copy_original_to_output = PHOTO_OUTPUT / f"original_{img.name}"
                         print(f"Copying original to output: {img.name} -> {copy_original_to_output.name}")
@@ -131,11 +135,11 @@ def main():
                         move_to_error(img, PHOTO_ERROR)
                         continue  # Skip all the steps for this image, jump to move decision
 
-                    # 5) Blur faces if any detected
+                    # 5) Blur faces if any detected (pass faces directly for speed)
                     try:
                         if len(faces) > 0:
                             print(f"Blurring faces in: {img.name}")
-                            success = face_blur(img)
+                            success = face_blur(img, faces)
                             if success:
                                 print(f"Successfully blurred faces in: {img.name}")
                             else:
@@ -149,16 +153,19 @@ def main():
                         move_to_error(img, PHOTO_ERROR)
                         continue  # Skip all the steps for this image, jump to move decision
 
-                    # 6) Move the processed photo to the output folder
+                    # 6) Rename and move the processed photo to the output folder
                     try:
-                        destination_file_path = PHOTO_OUTPUT / os.path.basename(img)
-                        shutil.move(str(img), str(destination_file_path))
-                        print(f"Moving photo from {img} to {str(destination_file_path)}")
-                        print(f"✓ Successfully processed and moved: {img.name}")
+                        destination = PHOTO_OUTPUT / f"anonymized_{img.name}"
+                        print(f"Moving photo from {img.name} to {str(destination)}")
+                        shutil.move(str(img), str(destination))
+                        print(f"✓ Successfully processed and moved: {img.name} to {destination.name}")
                     except Exception as e:
                         print(f"Warning: unable to move the photo to the output folder: {e}")
                         move_to_error(img, PHOTO_ERROR)
 
+                    elapsed = time.perf_counter() - start_ts
+                    print(f"Processing time for {img.name}: {elapsed:.2f} seconds")
+                    
             # Sleep between polls to avoid busy-waiting
             time.sleep(POLL_INTERVAL)
 

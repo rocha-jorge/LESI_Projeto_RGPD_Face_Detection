@@ -1,10 +1,12 @@
 from pathlib import Path
-import time
+from datetime import datetime
 
 def generate_timestamp_name(img_path: Path) -> str:
-    """Return a timestamp-prefixed filename (YYYYMMDD_HHMMSS_<originalname>)."""
-    ts = time.strftime("%Y%m%d_%H%M%S")
-    return f"{ts}_{img_path.name}"
+    """Return a timestamp-prefixed filename with milliseconds: YYYYMMDD_HHMMSS_mmm_<originalname>."""
+    now = datetime.now()
+    ts = now.strftime("%Y%m%d_%H%M%S")
+    ms = f"{now.microsecond // 1000:03d}"  # milliseconds
+    return f"{ts}_{ms}_{img_path.name}"
 
 def rename_photo(img_path: Path, input_dir: Path, new_name: str) -> Path:
     """

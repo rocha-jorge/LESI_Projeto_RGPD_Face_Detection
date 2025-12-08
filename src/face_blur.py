@@ -16,14 +16,6 @@ BLUR_STRENGTH = 100  # Higher value = stronger blur
 # Ensure output directory exists
 ANONYMIZATION_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# --- HELPER TO MOVE IMAGE TO ERROR FOLDER ---
-def move_to_error(src_path, output_path, error_dir, reason=""):
-    error_path = error_dir / src_path.name
-    if output_path.exists():
-        shutil.move(str(output_path), str(error_path))
-    if src_path.exists():
-        src_path.unlink()
-    print(f"Moved {src_path.name} to error folder. {reason}")
 
 # --- HELPER TO EXTRACT FACE COORDINATES FROM EXIF ---
 def get_faces_from_exif(image_path):
@@ -68,15 +60,16 @@ def blur_faces(image_path, output_path, faces):
     
     cv2.imwrite(str(output_path), img)
 
-def face_blur(img_file: Path) -> bool:
-    """Anonymize a single detected image using EXIF coordinates.
+def face_blur(img_file: Path, faces: list[tuple[int, int, int, int]] | None = None) -> bool:
+    """Anonymize a single detected image.
+    If `faces` is provided, uses them directly; otherwise, reads from EXIF.
     Returns True if anonymization succeeded, else False.
     """
     if img_file.suffix.lower() not in [".jpg", ".jpeg", ".png", ".bmp"]:
         return False
 
     start_time = time.time()
-    faces = get_faces_from_exif(img_file)
+    faces = faces if faces is not None else get_faces_from_exif(img_file)
     if not faces:
         print(f"\nNo faces found in EXIF for {img_file.name}")
         return False
