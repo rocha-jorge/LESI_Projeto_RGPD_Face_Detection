@@ -6,19 +6,16 @@ import sys
 import cv2
 from PIL import Image
 import piexif
+import logging
+from utils.paths import IMAGE_OUTPUT, IMAGE_ERROR
+from error_handling.move_to_error import move_to_error
 
 # --- CONFIG ---
-DETECTION_OUTPUT_DIR = Path(__file__).parent.parent / "photo_detection_output"
-ANONYMIZATION_OUTPUT_DIR = Path(__file__).parent.parent / "photo_output"
-ERROR_DIR = Path(__file__).parent.parent / "photo_detection_error"
 BLUR_STRENGTH = 100  # Higher value = stronger blur
-
-# Ensure output directory exists
-ANONYMIZATION_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
 # --- HELPER TO EXTRACT FACE COORDINATES FROM EXIF ---
-def get_faces_from_exif(image_path):
+def _get_faces_from_exif(image_path):
     try:
         img = Image.open(image_path)
         exif_data = img.info.get("exif", b"")
@@ -44,7 +41,7 @@ def get_faces_from_exif(image_path):
         return []
 
 # --- HELPER TO BLUR FACES ---
-def blur_faces(image_path, output_path, faces):
+def _apply_blur(image_path, output_path, faces):
     img = cv2.imread(str(image_path))
     if img is None:
         raise Exception("Could not read image")
@@ -69,23 +66,31 @@ def face_blur(img_file: Path, faces: list[tuple[int, int, int, int]] | None = No
         return False
 
     start_time = time.time()
-    faces = faces if faces is not None else get_faces_from_exif(img_file)
+    faces = faces if faces is not None else _get_faces_from_exif(img_file)
     if not faces:
-        print(f"\nNo faces found in EXIF for {img_file.name}")
+        logging.info(f"No faces found in EXIF for {img_file.name}")
         return False
 
-    # Overwrite the processing copy in photo_output
+    # Overwrite the processing copy in image_output
     output_path = img_file
-    print(f"\nProcessing {img_file.name}...")
+    logging.info(f"Processing image {img_file.name} for blur")
     try:
-        blur_faces(img_file, output_path, faces)
-        print(f"Anonymized image saved to {output_path.name}")
+        _apply_blur(img_file, output_path, faces)
+        logging.info(f"Anonymized image saved to {output_path.name}")
         elapsed_time = time.time() - start_time
-        print(f"✓ Completed in {elapsed_time:.2f} seconds")
+        logging.info(f"✓ Blur completed in {elapsed_time:.2f} seconds")
         return True
-    except Exception as e:
-        print(f"Error processing {img_file.name}: {e}. Moving to error folder.")
-        move_to_error(img_file, output_path, ERROR_DIR, f"Anonymization error: {e}")
+    except Exception:
+        logging.error(f"Error processing {img_file.name} during blur", exc_info=True)
+        return False
+
+def blur_faces(img: Path, faces: list[tuple[int, int, int, int]] | None) -> bool:
+    """Wrapper around face_blur returning success boolean; on failure, move to error."""
+    try:
+        return face_blur(img, faces)
+    except Exception:
+        logging.error(f"Could not evaluate or apply face blur for {img.name}", exc_info=True)
+        move_to_error(img, IMAGE_ERROR)
         return False
 
 
@@ -97,6 +102,6 @@ if __name__ == "__main__":
         if not single_file.is_absolute():
             single_file = (Path(__file__).parent.parent / single_file).resolve()
 
-    files_iter = [single_file] if single_file else DETECTION_OUTPUT_DIR.glob("*.*")
+    files_iter = [single_file] if single_file else IMAGE_OUTPUT.glob("*.*")
     for img in files_iter:
         face_blur(img)

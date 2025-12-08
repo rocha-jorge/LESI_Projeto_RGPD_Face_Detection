@@ -1,0 +1,27 @@
+2025-12-08 15:34:24 | INFO | Watcher starting up
+2025-12-08 15:34:24 | INFO | Found 2 image(s). Processing...
+2025-12-08 15:34:24 | INFO | ════════════════════════════════════════════════════════════
+2025-12-08 15:34:24 | INFO | ▶ Processing: original_image.png
+2025-12-08 15:34:24 | INFO | ════════════════════════════════════════════════════════════
+2025-12-08 15:34:24 | INFO | Renamed: d:\Repos\LESI_Projeto_RGPD_Face_Detection\photo_input\20251208_153424_717_original_image.png to 20251208_153424_717_original_image.png
+2025-12-08 15:34:24 | INFO | Copying original to output: 20251208_153424_717_original_image.png -> original_20251208_153424_717_original_image.png
+2025-12-08 15:34:24 | INFO | Image 20251208_153424_717_original_image.png is in .png format. Conversion not required
+2025-12-08 15:34:25 | INFO | Detected 4 face(s) in: 20251208_153424_717_original_image.png
+2025-12-08 15:34:25 | INFO | Blurring faces in: 20251208_153424_717_original_image.png
+2025-12-08 15:34:25 | INFO | Successfully blurred faces in: 20251208_153424_717_original_image.png
+2025-12-08 15:34:25 | INFO | Moving photo from 20251208_153424_717_original_image.png to d:\Repos\LESI_Projeto_RGPD_Face_Detection\photo_output\anonymized_20251208_153424_717_original_image.png
+2025-12-08 15:34:25 | INFO | ✓ Successfully processed and moved: 20251208_153424_717_original_image.png to anonymized_20251208_153424_717_original_image.png
+2025-12-08 15:34:25 | INFO | Processing time for 20251208_153424_717_original_image.png: 0.75 seconds
+2025-12-08 15:34:25 | INFO | ════════════════════════════════════════════════════════════
+2025-12-08 15:34:25 | INFO | ▶ Processing: original_image2.png
+2025-12-08 15:34:25 | INFO | ════════════════════════════════════════════════════════════
+2025-12-08 15:34:25 | INFO | Renamed: d:\Repos\LESI_Projeto_RGPD_Face_Detection\photo_input\20251208_153425_467_original_image2.png to 20251208_153425_467_original_image2.png
+2025-12-08 15:34:25 | INFO | Copying original to output: 20251208_153425_467_original_image2.png -> original_20251208_153425_467_original_image2.png
+2025-12-08 15:34:25 | INFO | Image 20251208_153425_467_original_image2.png is in .png format. Conversion not required
+2025-12-08 15:34:25 | INFO | Detected 5 face(s) in: 20251208_153425_467_original_image2.png
+2025-12-08 15:34:25 | INFO | Blurring faces in: 20251208_153425_467_original_image2.png
+2025-12-08 15:34:25 | INFO | Successfully blurred faces in: 20251208_153425_467_original_image2.png
+2025-12-08 15:34:25 | INFO | Moving photo from 20251208_153425_467_original_image2.png to d:\Repos\LESI_Projeto_RGPD_Face_Detection\photo_output\anonymized_20251208_153425_467_original_image2.png
+2025-12-08 15:34:25 | INFO | ✓ Successfully processed and moved: 20251208_153425_467_original_image2.png to anonymized_20251208_153425_467_original_image2.png
+2025-12-08 15:34:25 | INFO | Processing time for 20251208_153425_467_original_image2.png: 0.21 seconds
+2025-12-08 15:37:00 | INFO | Stop requested — watcher exiting

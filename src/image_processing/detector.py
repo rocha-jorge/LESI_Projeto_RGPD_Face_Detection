@@ -1,23 +1,23 @@
 # src/detector.py
-import os
-import shutil
 import time
 from pathlib import Path
 from ultralytics import YOLO
-import sys
 import cv2
 from PIL import Image
+import logging
+from error_handling.move_to_error import move_to_error
+from utils.paths import IMAGE_INPUT, IMAGE_OUTPUT, IMAGE_ERROR
 import piexif
 
 # --- CONFIG ---
-SRC_DIR = Path(__file__).parent.parent / "photo_input"
-OUTPUT_DIR = Path(__file__).parent.parent / "photo_output"
-ERROR_DIR = Path(__file__).parent.parent / "photo_error"
+# Centralized paths imported from utils.paths
+SRC_DIR = IMAGE_INPUT
+OUTPUT_DIR = IMAGE_OUTPUT
+ERROR_DIR = IMAGE_ERROR
 SAVE_EXIF = True  # set False if you don't want to save metadata
 
 # Ensure output directories exist
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-ERROR_DIR.mkdir(parents=True, exist_ok=True)
+# Directory creation is handled centrally (utils.paths.ensure_dirs)
 
 # --- LOAD MODEL ---
 MODEL_PATH = Path(__file__).parent.parent / "models" / "yolov8n-face.pt"  # path object
@@ -28,7 +28,6 @@ This module no longer downloads/loads YOLO at import time to avoid
 duplicated work and slow startup. Use the `detector(img, model)`
 function with a pre-initialized model.
 """
-
 
 # --- HELPER TO SAVE FACE COORDINATES TO EXIF ---
 def save_faces_exif(image_path, faces):
@@ -50,30 +49,27 @@ def save_faces_exif(image_path, faces):
 def detector(img_file: Path, model: YOLO) -> list:
     """
     Detect faces on a single image, save EXIF coordinates, and write the
-    processed image to photo_output with same filename.
+    processed image to image_output with same filename.
 
     Returns list of (x, y, w, h) face boxes.
     """
     if img_file.suffix.lower() not in [".jpg", ".jpeg", ".png", ".bmp"]:
-        print(f"\nUnsupported file format: {img_file.name}. Moving to error folder.")
-        move_to_error(img_file, None, ERROR_DIR, "Unsupported file extension")
+        logging.error(f"Unsupported file format for detection: {img_file.name}")
         return []
 
     start_time = time.time()
-    # Operate directly on the provided path (processing copy in photo_output)
+    # Operate directly on the provided path (processing copy in image_output)
     output_path = img_file
-    print(f"\nProcessing {output_path.name}...")
+    logging.info(f"Processing image {output_path.name} for detection")
     img = cv2.imread(str(output_path))
     if img is None:
-        print(f"Error: could not read {output_path.name}. Moving to error folder.")
-        move_to_error(img_file, output_path, ERROR_DIR, "Could not read image")
+        logging.error(f"Could not read {output_path.name} for detection")
         return []
 
     try:
         results = model(img)
     except Exception as e:
-        print(f"Error processing {img_file.name}: {e}. Moving to error folder.")
-        move_to_error(img_file, output_path, ERROR_DIR, f"Processing error: {e}")
+        logging.error(f"Error during detection for {img_file.name}: {e}", exc_info=True)
         return []
 
     faces_coords = []
@@ -83,40 +79,24 @@ def detector(img_file: Path, model: YOLO) -> list:
             x1, y1, x2, y2 = box
             w, h = x2 - x1, y2 - y1
             faces_coords.append((int(x1), int(y1), int(w), int(h)))
-            print(f"Face: x={int(x1)}, y={int(y1)}, w={int(w)}, h={int(h)}")
+            logging.debug(f"Face: x={int(x1)}, y={int(y1)}, w={int(w)}, h={int(h)}")
 
     if SAVE_EXIF and faces_coords:
         save_faces_exif(output_path, faces_coords)
-        print("Saved face coordinates to EXIF.")
+        logging.info("Saved face coordinates to EXIF.")
 
     # Do not delete or move any files here; watcher manages moves
 
     elapsed_time = time.time() - start_time
-    print(f"✓ Detection completed for {output_path.name} in {elapsed_time:.2f} seconds, found {len(faces_coords)} face(s).")
+    logging.info(f"✓ Image detection completed for {output_path.name} in {elapsed_time:.2f} seconds, found {len(faces_coords)} face(s).")
     return faces_coords
 
-
-# --- SCRIPT ENTRY: optional single-file CLI ---
-if __name__ == "__main__":
-    # Load model locally for script mode
-    if not MODEL_PATH.exists() and WEIGHTS_CACHE.exists():
-        MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
-        WEIGHTS_CACHE.replace(MODEL_PATH)
-        print(f"Moved cached weights from {WEIGHTS_CACHE} to {MODEL_PATH}")
-    if not MODEL_PATH.exists():
-        print("Downloading YOLOv8-Face model...")
-        model = YOLO("https://github.com/akanametov/yolov8-face/releases/download/v0.0.0/yolov8n-face.pt")
-        MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
-        model.save(MODEL_PATH)
-    else:
-        model = YOLO(str(MODEL_PATH))
-
-    single_file = None
-    if len(sys.argv) > 1:
-        single_file = Path(sys.argv[1])
-        if not single_file.is_absolute():
-            single_file = (Path(__file__).parent.parent / single_file).resolve()
-
-    files_iter = [single_file] if single_file else SRC_DIR.glob("*.*")
-    for img in files_iter:
-        detector(img, model)
+def detect_faces(img: Path, model: YOLO) -> tuple[bool, list | None]:
+    """Wrapper for detection: returns (ok, faces_or_none). On failure, move to error."""
+    try:
+        faces = detector(img, model)
+        return True, faces
+    except Exception:
+        logging.error(f"Could not apply face detection for {img.name}", exc_info=True)
+        move_to_error(img, IMAGE_ERROR)
+        return False, None
