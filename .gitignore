@@ -1,17 +1,67 @@
-# Virtual environment
+## Python bytecode/cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+## Virtual environments
+env/
+venv/
 venv_face_detection/
+.env
 
-# Model files
+## Build and distribution
+build/
+dist/
+*.egg-info/
+*.egg
+
+## IDE/editor settings
+.vscode/
+.idea/
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## Logs
+logs/*
+## just to make sure the logs folder exists in git, although it will always be empty
+!logs/.gitkeep  
+
+## Runtime I/O folders (do not commit processed data)
+image_input/*
+image_output/*
+image_error/*
+!image_input/.gitkeep
+!image_output/.gitkeep
+!image_error/.gitkeep
+
+## Model weights and caches
+weights/
 models/
+models/*.pt
 
-# Photo folders
+## Docker/compose artifacts
+*.pid
+*.log
+*.tar
+
+## Notebook checkpoints
+.ipynb_checkpoints/
+
+## Ultralytics cache (if used)
+.cache/
+
+## Legacy photo folders (if present)
 photo_input/
 photo_output/
 photo_detection_output/
 photo_detection_error/
 photo_anonymization_output/
 
-# Photo file types
+## Photo file types (avoid committing sample data accidentally)
 *.jpg
 *.jpeg
 *.png
@@ -21,24 +71,3 @@ photo_anonymization_output/
 *.gif
 *.webp
 *.heic
-
-# Ultralytics / model cache
-weights/
-
-# Docker image tarball (offline delivery)
-*.tar
-
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-env/
-venv/
-*.egg-info/
-dist/
-build/
-
-# VS Code
-.vscode/

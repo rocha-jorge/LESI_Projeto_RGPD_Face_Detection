@@ -2,10 +2,12 @@
 import time
 from pathlib import Path
 from ultralytics import YOLO
+from input_output.move_to_error import move_to_error
+from utils.paths import IMAGE_INPUT, IMAGE_OUTPUT, IMAGE_ERROR
 import cv2
 from PIL import Image
 import logging
-from error_handling.move_to_error import move_to_error
+from input_output.move_to_error import move_to_error
 from utils.paths import IMAGE_INPUT, IMAGE_OUTPUT, IMAGE_ERROR
 import piexif
 
@@ -98,5 +100,5 @@ def detect_faces(img: Path, model: YOLO) -> tuple[bool, list | None]:
         return True, faces
     except Exception:
         logging.error(f"Could not apply face detection for {img.name}", exc_info=True)
-        move_to_error(img, IMAGE_ERROR)
+            move_to_error(img)
         return False, None

@@ -3,7 +3,7 @@ from ultralytics import YOLO
 from utils.paths import IMAGE_INPUT, PROJECT_ROOT
 
 
-def setup_environment_and_model(input_dir: Path = IMAGE_INPUT) -> YOLO:
+def setup_model(input_dir: Path = IMAGE_INPUT) -> YOLO:
     """Prepare model weights and return an initialized YOLO model.
 
     Assumes required directories are created by the caller (e.g., watcher).

@@ -1,5 +1,4 @@
-import os
-import shutil
+
 import time
 from pathlib import Path
 import sys
@@ -8,7 +7,7 @@ from PIL import Image
 import piexif
 import logging
 from utils.paths import IMAGE_OUTPUT, IMAGE_ERROR
-from error_handling.move_to_error import move_to_error
+from input_output.move_to_error import move_to_error
 
 # --- CONFIG ---
 BLUR_STRENGTH = 100  # Higher value = stronger blur
@@ -90,7 +89,7 @@ def blur_faces(img: Path, faces: list[tuple[int, int, int, int]] | None) -> bool
         return face_blur(img, faces)
     except Exception:
         logging.error(f"Could not evaluate or apply face blur for {img.name}", exc_info=True)
-        move_to_error(img, IMAGE_ERROR)
+        move_to_error(img)
         return False
 
 

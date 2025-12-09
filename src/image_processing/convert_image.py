@@ -2,7 +2,7 @@ from pathlib import Path
 import logging
 from PIL import Image
 from utils.paths import IMAGE_ERROR
-from error_handling.move_to_error import move_to_error
+from input_output.move_to_error import move_to_error
 
 
 def ensure_processable_image(img_path: Path) -> Path:
@@ -43,5 +43,5 @@ def convert(img: Path) -> tuple[bool, Path | None]:
             return True, img
     except Exception:
         logging.error(f"Could not determine/convert image type for {img.name}", exc_info=True)
-        move_to_error(img, IMAGE_ERROR)
+        move_to_error(img)
         return False, None

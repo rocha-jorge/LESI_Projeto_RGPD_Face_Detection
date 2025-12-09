@@ -25,3 +25,223 @@
 2025-12-08 15:34:25 | INFO | ✓ Successfully processed and moved: 20251208_153425_467_original_image2.png to anonymized_20251208_153425_467_original_image2.png
 2025-12-08 15:34:25 | INFO | Processing time for 20251208_153425_467_original_image2.png: 0.21 seconds
 2025-12-08 15:37:00 | INFO | Stop requested — watcher exiting
+2025-12-09 00:55:35 | INFO | Watcher starting up
+2025-12-09 00:55:35 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\original_image copy.fdsf to 20251209_005535_632_original_image copy.fdsf
+2025-12-09 00:55:35 | INFO | Timestamp rename successful, copying unsupported original to output: 20251209_005535_632_original_image copy.fdsf -> original_20251209_005535_632_original_image copy.fdsf
+2025-12-09 00:55:35 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 225.2 MB | Sys CPU: 1.3% | Sys RAM: 13330 MB
+2025-12-09 00:55:41 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 225.3 MB | Sys CPU: 1.2% | Sys RAM: 13310 MB
+2025-12-09 00:55:46 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 225.3 MB | Sys CPU: 0.0% | Sys RAM: 13199 MB
+2025-12-09 00:55:51 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 225.3 MB | Sys CPU: 18.4% | Sys RAM: 13196 MB
+2025-12-09 00:55:56 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 225.3 MB | Sys CPU: 8.3% | Sys RAM: 13173 MB
+2025-12-09 00:56:01 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 225.3 MB | Sys CPU: 7.1% | Sys RAM: 13439 MB
+2025-12-09 00:56:07 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 225.3 MB | Sys CPU: 0.0% | Sys RAM: 13422 MB
+2025-12-09 00:56:12 | INFO | Stop requested — watcher exiting
+2025-12-09 01:03:24 | INFO | Watcher starting up
+2025-12-09 01:03:24 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 246.8 MB | Sys CPU: 16.0% | Sys RAM: 12742 MB
+2025-12-09 01:03:29 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 246.9 MB | Sys CPU: 0.0% | Sys RAM: 12719 MB
+2025-12-09 01:03:34 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 246.9 MB | Sys CPU: 2.4% | Sys RAM: 12693 MB
+2025-12-09 01:03:39 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 246.9 MB | Sys CPU: 5.3% | Sys RAM: 12785 MB
+2025-12-09 01:03:45 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 246.9 MB | Sys CPU: 17.9% | Sys RAM: 12783 MB
+2025-12-09 01:03:50 | INFO | Found 2 image(s). Processing...
+2025-12-09 01:03:50 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:03:50 | INFO | ▶ Processing image: original_image.png
+2025-12-09 01:03:50 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:03:50 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\original_image.png to 20251209_010350_184_original_image.png
+2025-12-09 01:03:50 | INFO | Step rename | Proc CPU: 0.0% | Proc RAM: 246.9 MB | Sys CPU: 0.0% | Sys RAM: 12581 MB
+2025-12-09 01:03:50 | INFO | Copying original to output: 20251209_010350_184_original_image.png -> original_20251209_010350_184_original_image.png
+2025-12-09 01:03:50 | INFO | Step copy   | Proc CPU: 0.0% | Proc RAM: 246.9 MB | Sys CPU: 12.5% | Sys RAM: 12582 MB
+2025-12-09 01:03:50 | INFO | Image 20251209_010350_184_original_image.png is in .png format. Conversion not required
+2025-12-09 01:03:50 | INFO | Step convert| Proc CPU: 0.0% | Proc RAM: 246.9 MB | Sys CPU: 0.0% | Sys RAM: 12582 MB
+2025-12-09 01:03:50 | INFO | Processing image 20251209_010350_184_original_image.png for detection
+2025-12-09 01:03:51 | INFO | Saved face coordinates to EXIF.
+2025-12-09 01:03:51 | INFO | ✓ Image detection completed for 20251209_010350_184_original_image.png in 0.59 seconds, found 4 face(s).
+2025-12-09 01:03:51 | INFO | Step detect | Proc CPU: 0.0% | Proc RAM: 278.8 MB | Sys CPU: 0.0% | Sys RAM: 12628 MB
+2025-12-09 01:03:51 | INFO | Processing image 20251209_010350_184_original_image.png for blur
+2025-12-09 01:03:51 | INFO | Anonymized image saved to 20251209_010350_184_original_image.png
+2025-12-09 01:03:51 | INFO | ✓ Blur completed in 0.14 seconds
+2025-12-09 01:03:51 | INFO | Step blur   | Proc CPU: 0.0% | Proc RAM: 280.0 MB | Sys CPU: 27.5% | Sys RAM: 12634 MB
+2025-12-09 01:03:51 | ERROR | Watcher error
+Traceback (most recent call last):
+  File "D:\Repos\LESI_Projeto_RGPD_Face_Detection\src\app\WATCHER.py", line 98, in main
+    process_image(img, model)
+  File "D:\Repos\LESI_Projeto_RGPD_Face_Detection\src\app\image_processing_pipeline.py", line 75, in process_image
+    if not move_anon_image_to_output(img):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: move_anon_image_to_output() missing 2 required positional arguments: 'image_output' and 'image_error'
+2025-12-09 01:03:56 | INFO | Found 2 image(s). Processing...
+2025-12-09 01:03:56 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:03:56 | INFO | ▶ Processing image: 20251209_010350_184_original_image.png
+2025-12-09 01:03:56 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:03:56 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\20251209_010350_184_original_image.png to 20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:03:56 | INFO | Step rename | Proc CPU: 0.0% | Proc RAM: 280.1 MB | Sys CPU: 33.3% | Sys RAM: 12502 MB
+2025-12-09 01:03:56 | INFO | Copying original to output: 20251209_010356_442_20251209_010350_184_original_image.png -> original_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:03:56 | INFO | Step copy   | Proc CPU: 0.0% | Proc RAM: 280.1 MB | Sys CPU: 12.1% | Sys RAM: 12510 MB
+2025-12-09 01:03:56 | INFO | Image 20251209_010356_442_20251209_010350_184_original_image.png is in .png format. Conversion not required
+2025-12-09 01:03:56 | INFO | Step convert| Proc CPU: 0.0% | Proc RAM: 280.1 MB | Sys CPU: 19.4% | Sys RAM: 12520 MB
+2025-12-09 01:03:56 | INFO | Processing image 20251209_010356_442_20251209_010350_184_original_image.png for detection
+2025-12-09 01:03:56 | INFO | ✓ Image detection completed for 20251209_010356_442_20251209_010350_184_original_image.png in 0.08 seconds, found 0 face(s).
+2025-12-09 01:03:56 | INFO | Step detect | Proc CPU: 531.9% | Proc RAM: 303.8 MB | Sys CPU: 91.7% | Sys RAM: 12630 MB
+2025-12-09 01:03:56 | INFO | No faces reported by detector for 20251209_010356_442_20251209_010350_184_original_image.png. Skipping blur
+2025-12-09 01:03:56 | ERROR | Watcher error
+Traceback (most recent call last):
+  File "D:\Repos\LESI_Projeto_RGPD_Face_Detection\src\app\WATCHER.py", line 98, in main
+    process_image(img, model)
+  File "D:\Repos\LESI_Projeto_RGPD_Face_Detection\src\app\image_processing_pipeline.py", line 75, in process_image
+    if not move_anon_image_to_output(img):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: move_anon_image_to_output() missing 2 required positional arguments: 'image_output' and 'image_error'
+2025-12-09 01:04:01 | INFO | Found 2 image(s). Processing...
+2025-12-09 01:04:01 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:04:01 | INFO | ▶ Processing image: 20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:01 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:04:01 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\20251209_010356_442_20251209_010350_184_original_image.png to 20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:02 | INFO | Step rename | Proc CPU: 0.0% | Proc RAM: 303.8 MB | Sys CPU: 4.0% | Sys RAM: 12784 MB
+2025-12-09 01:04:02 | INFO | Copying original to output: 20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png -> original_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:02 | INFO | Step copy   | Proc CPU: 0.0% | Proc RAM: 303.8 MB | Sys CPU: 0.0% | Sys RAM: 12784 MB
+2025-12-09 01:04:02 | INFO | Image 20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png is in .png format. Conversion not required
+2025-12-09 01:04:02 | INFO | Step convert| Proc CPU: 0.0% | Proc RAM: 303.8 MB | Sys CPU: 9.4% | Sys RAM: 12782 MB
+2025-12-09 01:04:02 | INFO | Processing image 20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png for detection
+2025-12-09 01:04:02 | INFO | ✓ Image detection completed for 20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png in 0.07 seconds, found 0 face(s).
+2025-12-09 01:04:02 | INFO | Step detect | Proc CPU: 529.2% | Proc RAM: 304.4 MB | Sys CPU: 63.9% | Sys RAM: 12792 MB
+2025-12-09 01:04:02 | INFO | No faces reported by detector for 20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png. Skipping blur
+2025-12-09 01:04:02 | ERROR | Watcher error
+Traceback (most recent call last):
+  File "D:\Repos\LESI_Projeto_RGPD_Face_Detection\src\app\WATCHER.py", line 98, in main
+    process_image(img, model)
+  File "D:\Repos\LESI_Projeto_RGPD_Face_Detection\src\app\image_processing_pipeline.py", line 75, in process_image
+    if not move_anon_image_to_output(img):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: move_anon_image_to_output() missing 2 required positional arguments: 'image_output' and 'image_error'
+2025-12-09 01:04:07 | INFO | Found 2 image(s). Processing...
+2025-12-09 01:04:07 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:04:07 | INFO | ▶ Processing image: 20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:07 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:04:07 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png to 20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:07 | INFO | Step rename | Proc CPU: 0.0% | Proc RAM: 304.4 MB | Sys CPU: 0.0% | Sys RAM: 12653 MB
+2025-12-09 01:04:07 | INFO | Copying original to output: 20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png -> original_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:07 | INFO | Step copy   | Proc CPU: 0.0% | Proc RAM: 304.4 MB | Sys CPU: 0.0% | Sys RAM: 12654 MB
+2025-12-09 01:04:07 | INFO | Image 20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png is in .png format. Conversion not required
+2025-12-09 01:04:07 | INFO | Step convert| Proc CPU: 0.0% | Proc RAM: 304.4 MB | Sys CPU: 0.0% | Sys RAM: 12654 MB
+2025-12-09 01:04:07 | INFO | Processing image 20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png for detection
+2025-12-09 01:04:07 | INFO | ✓ Image detection completed for 20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png in 0.08 seconds, found 0 face(s).
+2025-12-09 01:04:07 | INFO | Step detect | Proc CPU: 951.1% | Proc RAM: 304.4 MB | Sys CPU: 58.3% | Sys RAM: 12662 MB
+2025-12-09 01:04:07 | INFO | No faces reported by detector for 20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png. Skipping blur
+2025-12-09 01:04:07 | ERROR | Watcher error
+Traceback (most recent call last):
+  File "D:\Repos\LESI_Projeto_RGPD_Face_Detection\src\app\WATCHER.py", line 98, in main
+    process_image(img, model)
+  File "D:\Repos\LESI_Projeto_RGPD_Face_Detection\src\app\image_processing_pipeline.py", line 75, in process_image
+    if not move_anon_image_to_output(img):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: move_anon_image_to_output() missing 2 required positional arguments: 'image_output' and 'image_error'
+2025-12-09 01:04:12 | INFO | Found 2 image(s). Processing...
+2025-12-09 01:04:12 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:04:12 | INFO | ▶ Processing image: 20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:12 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:04:12 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png to 20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:13 | INFO | Step rename | Proc CPU: 0.0% | Proc RAM: 304.4 MB | Sys CPU: 0.0% | Sys RAM: 12658 MB
+2025-12-09 01:04:13 | INFO | Copying original to output: 20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png -> original_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:13 | INFO | Step copy   | Proc CPU: 0.0% | Proc RAM: 304.4 MB | Sys CPU: 6.1% | Sys RAM: 12657 MB
+2025-12-09 01:04:13 | INFO | Image 20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png is in .png format. Conversion not required
+2025-12-09 01:04:13 | INFO | Step convert| Proc CPU: 0.0% | Proc RAM: 304.4 MB | Sys CPU: 13.8% | Sys RAM: 12656 MB
+2025-12-09 01:04:13 | INFO | Processing image 20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png for detection
+2025-12-09 01:04:13 | INFO | ✓ Image detection completed for 20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png in 0.07 seconds, found 0 face(s).
+2025-12-09 01:04:13 | INFO | Step detect | Proc CPU: 554.4% | Proc RAM: 304.4 MB | Sys CPU: 58.3% | Sys RAM: 12659 MB
+2025-12-09 01:04:13 | INFO | No faces reported by detector for 20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png. Skipping blur
+2025-12-09 01:04:13 | ERROR | Watcher error
+Traceback (most recent call last):
+  File "D:\Repos\LESI_Projeto_RGPD_Face_Detection\src\app\WATCHER.py", line 98, in main
+    process_image(img, model)
+  File "D:\Repos\LESI_Projeto_RGPD_Face_Detection\src\app\image_processing_pipeline.py", line 75, in process_image
+    if not move_anon_image_to_output(img):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: move_anon_image_to_output() missing 2 required positional arguments: 'image_output' and 'image_error'
+2025-12-09 01:04:18 | INFO | Found 2 image(s). Processing...
+2025-12-09 01:04:18 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:04:18 | INFO | ▶ Processing image: 20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:18 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:04:18 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png to 20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:18 | INFO | Step rename | Proc CPU: 0.0% | Proc RAM: 304.4 MB | Sys CPU: 7.7% | Sys RAM: 12658 MB
+2025-12-09 01:04:18 | INFO | Copying original to output: 20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png -> original_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:18 | INFO | Step copy   | Proc CPU: 0.0% | Proc RAM: 304.4 MB | Sys CPU: 4.4% | Sys RAM: 12659 MB
+2025-12-09 01:04:18 | INFO | Image 20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png is in .png format. Conversion not required
+2025-12-09 01:04:18 | INFO | Step convert| Proc CPU: 0.0% | Proc RAM: 304.4 MB | Sys CPU: 16.7% | Sys RAM: 12659 MB
+2025-12-09 01:04:18 | INFO | Processing image 20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png for detection
+2025-12-09 01:04:18 | INFO | ✓ Image detection completed for 20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png in 0.07 seconds, found 0 face(s).
+2025-12-09 01:04:18 | INFO | Step detect | Proc CPU: 698.1% | Proc RAM: 304.5 MB | Sys CPU: 59.0% | Sys RAM: 12659 MB
+2025-12-09 01:04:18 | INFO | No faces reported by detector for 20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png. Skipping blur
+2025-12-09 01:04:18 | ERROR | Watcher error
+Traceback (most recent call last):
+  File "D:\Repos\LESI_Projeto_RGPD_Face_Detection\src\app\WATCHER.py", line 98, in main
+    process_image(img, model)
+  File "D:\Repos\LESI_Projeto_RGPD_Face_Detection\src\app\image_processing_pipeline.py", line 75, in process_image
+    if not move_anon_image_to_output(img):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: move_anon_image_to_output() missing 2 required positional arguments: 'image_output' and 'image_error'
+2025-12-09 01:04:23 | INFO | Found 2 image(s). Processing...
+2025-12-09 01:04:23 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:04:23 | INFO | ▶ Processing image: 20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:23 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:04:23 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png to 20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:24 | INFO | Step rename | Proc CPU: 0.0% | Proc RAM: 304.4 MB | Sys CPU: 0.0% | Sys RAM: 12651 MB
+2025-12-09 01:04:24 | INFO | Copying original to output: 20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png -> original_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:24 | INFO | Step copy   | Proc CPU: 0.0% | Proc RAM: 304.4 MB | Sys CPU: 14.0% | Sys RAM: 12662 MB
+2025-12-09 01:04:24 | INFO | Image 20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png is in .png format. Conversion not required
+2025-12-09 01:04:24 | INFO | Step convert| Proc CPU: 0.0% | Proc RAM: 304.4 MB | Sys CPU: 11.4% | Sys RAM: 12662 MB
+2025-12-09 01:04:24 | INFO | Processing image 20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png for detection
+2025-12-09 01:04:24 | INFO | ✓ Image detection completed for 20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png in 0.09 seconds, found 0 face(s).
+2025-12-09 01:04:24 | INFO | Step detect | Proc CPU: 864.4% | Proc RAM: 304.5 MB | Sys CPU: 56.1% | Sys RAM: 12663 MB
+2025-12-09 01:04:24 | INFO | No faces reported by detector for 20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png. Skipping blur
+2025-12-09 01:04:24 | ERROR | Watcher error
+Traceback (most recent call last):
+  File "D:\Repos\LESI_Projeto_RGPD_Face_Detection\src\app\WATCHER.py", line 98, in main
+    process_image(img, model)
+  File "D:\Repos\LESI_Projeto_RGPD_Face_Detection\src\app\image_processing_pipeline.py", line 75, in process_image
+    if not move_anon_image_to_output(img):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: move_anon_image_to_output() missing 2 required positional arguments: 'image_output' and 'image_error'
+2025-12-09 01:04:29 | INFO | Found 2 image(s). Processing...
+2025-12-09 01:04:29 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:04:29 | INFO | ▶ Processing image: 20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:29 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:04:29 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png to 20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:29 | INFO | Step rename | Proc CPU: 0.0% | Proc RAM: 304.5 MB | Sys CPU: 20.8% | Sys RAM: 12659 MB
+2025-12-09 01:04:29 | INFO | Copying original to output: 20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png -> original_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:29 | INFO | Step copy   | Proc CPU: 0.0% | Proc RAM: 304.5 MB | Sys CPU: 13.5% | Sys RAM: 12659 MB
+2025-12-09 01:04:29 | INFO | Image 20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png is in .png format. Conversion not required
+2025-12-09 01:04:29 | INFO | Step convert| Proc CPU: 0.0% | Proc RAM: 304.5 MB | Sys CPU: 8.3% | Sys RAM: 12659 MB
+2025-12-09 01:04:29 | INFO | Processing image 20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png for detection
+2025-12-09 01:04:29 | INFO | ✓ Image detection completed for 20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png in 0.08 seconds, found 0 face(s).
+2025-12-09 01:04:29 | INFO | Step detect | Proc CPU: 698.1% | Proc RAM: 304.5 MB | Sys CPU: 66.7% | Sys RAM: 12660 MB
+2025-12-09 01:04:29 | INFO | No faces reported by detector for 20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png. Skipping blur
+2025-12-09 01:04:29 | ERROR | Watcher error
+Traceback (most recent call last):
+  File "D:\Repos\LESI_Projeto_RGPD_Face_Detection\src\app\WATCHER.py", line 98, in main
+    process_image(img, model)
+  File "D:\Repos\LESI_Projeto_RGPD_Face_Detection\src\app\image_processing_pipeline.py", line 75, in process_image
+    if not move_anon_image_to_output(img):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: move_anon_image_to_output() missing 2 required positional arguments: 'image_output' and 'image_error'
+2025-12-09 01:04:34 | INFO | Found 2 image(s). Processing...
+2025-12-09 01:04:34 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:04:34 | INFO | ▶ Processing image: 20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:34 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:04:34 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png to 20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:35 | INFO | Step rename | Proc CPU: 0.0% | Proc RAM: 304.5 MB | Sys CPU: 2.7% | Sys RAM: 12637 MB
+2025-12-09 01:04:35 | INFO | Copying original to output: 20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png -> original_20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:04:35 | INFO | Step copy   | Proc CPU: 33.2% | Proc RAM: 304.5 MB | Sys CPU: 0.0% | Sys RAM: 12637 MB
+2025-12-09 01:04:35 | INFO | Image 20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png is in .png format. Conversion not required
+2025-12-09 01:04:35 | INFO | Step convert| Proc CPU: 0.0% | Proc RAM: 304.5 MB | Sys CPU: 8.6% | Sys RAM: 12638 MB
+2025-12-09 01:04:35 | INFO | Processing image 20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png for detection
+2025-12-09 01:04:35 | INFO | ✓ Image detection completed for 20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png in 0.08 seconds, found 0 face(s).
+2025-12-09 01:04:35 | INFO | Step detect | Proc CPU: 930.9% | Proc RAM: 304.5 MB | Sys CPU: 58.3% | Sys RAM: 12641 MB
+2025-12-09 01:04:35 | INFO | No faces reported by detector for 20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png. Skipping blur
+2025-12-09 01:04:35 | ERROR | Watcher error
+Traceback (most recent call last):
+  File "D:\Repos\LESI_Projeto_RGPD_Face_Detection\src\app\WATCHER.py", line 98, in main
+    process_image(img, model)
+  File "D:\Repos\LESI_Projeto_RGPD_Face_Detection\src\app\image_processing_pipeline.py", line 75, in process_image
+    if not move_anon_image_to_output(img):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: move_anon_image_to_output() missing 2 required positional arguments: 'image_output' and 'image_error'
+2025-12-09 01:04:40 | INFO | Stop requested — watcher exiting

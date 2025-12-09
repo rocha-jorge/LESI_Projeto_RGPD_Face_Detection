@@ -16,7 +16,6 @@ Notes:
 # ADICIONAR 
 
 # Configurable thresholds: Add env/config for detection confidence, IoU, min face size, and blur strength. Makes results tunable without code changes.
-# Structured logging: Replace prints with Python logging (levels, file handlers with rotation). Optionally add JSON logs for easy ingestion.
 # evitar processar ficheiros que ainda não acabaram de ser escritos na pasta de input // Ready file detection: Avoid processing partially copied files by verifying file size is stable (e.g., unchanged across N checks) before processing.
 
 # Non-JPEG metadata: EXIF on PNG/WebP isn’t standard. Keep EXIF for JPEG/TIFF, but add XMP embedding for PNG/WebP to preserve face boxes cross-format. Sidecar JSON as a fallback if XMP lib isn’t available.
@@ -35,13 +34,21 @@ import os
 import time
 import signal
 import logging
+import sys
+from pathlib import Path
+
+# Ensure 'src' is on the Python path for absolute imports like 'utils.*'
+SRC_ROOT = Path(__file__).resolve().parents[1]
+if str(SRC_ROOT) not in sys.path:
+    sys.path.append(str(SRC_ROOT))
 
 from utils.logging_setup import init_logging
 from utils.paths import *
 from utils.setup_model import setup_model
 from image_processing.list_images import list_images
-from image_processing.image_processing_pipeline import process_image
-from error_handling.handle_unsupported_files import handle_unsupported_file
+from app.image_processing_pipeline import process_image
+from input_output.handle_unsupported_files import handle_unsupported_file
+from utils.system_metrics import get_process_usage, get_system_usage
 
 POLL_INTERVAL = int(os.environ.get("POLL_INTERVAL", "5"))
 
@@ -96,6 +103,9 @@ def main():
                     handle_unsupported_file(unsupported)
 
             # Sleep before the next polling iteration
+            p_cpu, p_mem = get_process_usage(0.1)
+            s_cpu, s_mem = get_system_usage(0.1)
+            logging.info(f"Loop resources | Proc CPU: {p_cpu:.1f}% | Proc RAM: {p_mem:.1f} MB | Sys CPU: {s_cpu:.1f}% | Sys RAM: {s_mem:.0f} MB")
             time.sleep(POLL_INTERVAL)
 
         except Exception as e:
