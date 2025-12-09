@@ -11,7 +11,7 @@ IMAGE_ERROR = Path(os.environ.get("IMAGE_ERROR") or (PROJECT_ROOT / "image_error
 
 # Log directory
 LOG_DIR = PROJECT_ROOT / "logs"
-LOG_FILE = LOG_DIR / "watcher.log"
+LOG_FILE = LOG_DIR / "log_registry.log"
 
 # Ensure standard directories exist
 def ensure_dirs() -> None:

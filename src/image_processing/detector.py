@@ -100,5 +100,5 @@ def detect_faces(img: Path, model: YOLO) -> tuple[bool, list | None]:
         return True, faces
     except Exception:
         logging.error(f"Could not apply face detection for {img.name}", exc_info=True)
-            move_to_error(img)
+        move_to_error(img)
         return False, None

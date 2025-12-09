@@ -245,3 +245,180 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: move_anon_image_to_output() missing 2 required positional arguments: 'image_output' and 'image_error'
 2025-12-09 01:04:40 | INFO | Stop requested — watcher exiting
+2025-12-09 01:19:42 | INFO | Watcher starting up
+2025-12-09 01:19:42 | INFO | Watcher initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2025-12-09 01:19:42 | INFO | Model YOLOv8-Face initialized on cpu | CPU
+2025-12-09 01:19:42 | INFO | Found 2 image(s). Processing...
+2025-12-09 01:19:42 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:19:42 | INFO | ▶ Processing image: 20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:19:42 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:19:42 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png to 20251209_011942_899_20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:19:43 | INFO | Step rename | Proc CPU: 0.0% | Proc RAM: 225.0 MB | Sys CPU: 4.4% | Sys RAM: 12589 MB
+2025-12-09 01:19:43 | INFO | Copying original to output: 20251209_011942_899_20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png -> original_20251209_011942_899_20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:19:43 | INFO | Step copy   | Proc CPU: 0.0% | Proc RAM: 225.0 MB | Sys CPU: 8.3% | Sys RAM: 12592 MB
+2025-12-09 01:19:43 | INFO | Image 20251209_011942_899_20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png is in .png format. Conversion not required
+2025-12-09 01:19:43 | INFO | Step convert| Proc CPU: 0.0% | Proc RAM: 225.0 MB | Sys CPU: 10.6% | Sys RAM: 12592 MB
+2025-12-09 01:19:43 | INFO | Processing image 20251209_011942_899_20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png for detection
+2025-12-09 01:19:43 | INFO | ✓ Image detection completed for 20251209_011942_899_20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png in 0.15 seconds, found 0 face(s).
+2025-12-09 01:19:43 | INFO | Step detect | Proc CPU: 797.9% | Proc RAM: 276.1 MB | Sys CPU: 59.5% | Sys RAM: 12645 MB
+2025-12-09 01:19:43 | INFO | No faces reported by detector for 20251209_011942_899_20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png. Skipping blur
+2025-12-09 01:19:43 | INFO | Moving anonymized image: 20251209_011942_899_20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\20251209_011942_899_20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:19:43 | INFO | ✓ Successfully finalized: 20251209_011942_899_20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png
+2025-12-09 01:19:43 | INFO | Step finalize| Proc CPU: 698.1% | Proc RAM: 276.1 MB | Sys CPU: 58.3% | Sys RAM: 12630 MB
+2025-12-09 01:19:43 | INFO | Image processing time for 20251209_011942_899_20251209_010434_903_20251209_010429_408_20251209_010423_902_20251209_010418_412_20251209_010412_924_20251209_010407_431_20251209_010401_943_20251209_010356_442_20251209_010350_184_original_image.png: 0.66 seconds
+2025-12-09 01:19:43 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:19:43 | INFO | ▶ Processing image: original_image2.png
+2025-12-09 01:19:43 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:19:43 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\original_image2.png to 20251209_011943_559_original_image2.png
+2025-12-09 01:19:43 | INFO | Step rename | Proc CPU: 0.0% | Proc RAM: 276.1 MB | Sys CPU: 0.0% | Sys RAM: 12628 MB
+2025-12-09 01:19:43 | INFO | Copying original to output: 20251209_011943_559_original_image2.png -> original_20251209_011943_559_original_image2.png
+2025-12-09 01:19:43 | INFO | Step copy   | Proc CPU: 0.0% | Proc RAM: 276.1 MB | Sys CPU: 4.2% | Sys RAM: 12633 MB
+2025-12-09 01:19:43 | INFO | Image 20251209_011943_559_original_image2.png is in .png format. Conversion not required
+2025-12-09 01:19:43 | INFO | Step convert| Proc CPU: 0.0% | Proc RAM: 276.1 MB | Sys CPU: 0.0% | Sys RAM: 12634 MB
+2025-12-09 01:19:43 | INFO | Processing image 20251209_011943_559_original_image2.png for detection
+2025-12-09 01:19:44 | INFO | Saved face coordinates to EXIF.
+2025-12-09 01:19:44 | INFO | ✓ Image detection completed for 20251209_011943_559_original_image2.png in 0.15 seconds, found 5 face(s).
+2025-12-09 01:19:44 | INFO | Step detect | Proc CPU: 698.1% | Proc RAM: 279.5 MB | Sys CPU: 71.4% | Sys RAM: 12629 MB
+2025-12-09 01:19:44 | INFO | Processing image 20251209_011943_559_original_image2.png for blur
+2025-12-09 01:19:44 | INFO | Anonymized image saved to 20251209_011943_559_original_image2.png
+2025-12-09 01:19:44 | INFO | ✓ Blur completed in 0.05 seconds
+2025-12-09 01:19:44 | INFO | Step blur   | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 17.6% | Sys RAM: 12633 MB
+2025-12-09 01:19:44 | INFO | Moving anonymized image: 20251209_011943_559_original_image2.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\20251209_011943_559_original_image2.png
+2025-12-09 01:19:44 | INFO | ✓ Successfully finalized: 20251209_011943_559_original_image2.png
+2025-12-09 01:19:44 | INFO | Step finalize| Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 11.8% | Sys RAM: 12633 MB
+2025-12-09 01:19:44 | INFO | Image processing time for 20251209_011943_559_original_image2.png: 0.82 seconds
+2025-12-09 01:19:44 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 17.6% | Sys RAM: 12637 MB
+2025-12-09 01:19:49 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 4.1% | Sys RAM: 12621 MB
+2025-12-09 01:19:54 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 8.9% | Sys RAM: 12623 MB
+2025-12-09 01:20:00 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 0.0% | Sys RAM: 12672 MB
+2025-12-09 01:20:05 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 6.7% | Sys RAM: 12769 MB
+2025-12-09 01:20:10 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 15.3% | Sys RAM: 12757 MB
+2025-12-09 01:20:15 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 7.4% | Sys RAM: 12757 MB
+2025-12-09 01:20:20 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 7.8% | Sys RAM: 12761 MB
+2025-12-09 01:20:26 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 0.0% | Sys RAM: 12720 MB
+2025-12-09 01:20:31 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 6.4% | Sys RAM: 12822 MB
+2025-12-09 01:20:36 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 21.5% | Sys RAM: 12756 MB
+2025-12-09 01:20:41 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 8.2% | Sys RAM: 12903 MB
+2025-12-09 01:20:47 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 6.9% | Sys RAM: 12890 MB
+2025-12-09 01:20:52 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 40.0% | Sys RAM: 12931 MB
+2025-12-09 01:20:57 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 0.0% | Sys RAM: 12975 MB
+2025-12-09 01:21:02 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 0.0% | Sys RAM: 12783 MB
+2025-12-09 01:21:07 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 0.0% | Sys RAM: 12729 MB
+2025-12-09 01:21:13 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 2.7% | Sys RAM: 12718 MB
+2025-12-09 01:21:18 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 3.5% | Sys RAM: 12645 MB
+2025-12-09 01:21:23 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 19.0% | Sys RAM: 12650 MB
+2025-12-09 01:21:28 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 1.2% | Sys RAM: 12648 MB
+2025-12-09 01:21:33 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 0.0% | Sys RAM: 12651 MB
+2025-12-09 01:21:39 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 6.7% | Sys RAM: 12612 MB
+2025-12-09 01:21:44 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 9.5% | Sys RAM: 12706 MB
+2025-12-09 01:21:49 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 4.9% | Sys RAM: 12690 MB
+2025-12-09 01:21:54 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 18.8% | Sys RAM: 12789 MB
+2025-12-09 01:21:59 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 34.6% | Sys RAM: 13127 MB
+2025-12-09 01:22:05 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 0.0% | Sys RAM: 13094 MB
+2025-12-09 01:22:10 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 0.0% | Sys RAM: 12950 MB
+2025-12-09 01:22:15 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 12.6% | Sys RAM: 12922 MB
+2025-12-09 01:22:20 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 36.9% | Sys RAM: 12990 MB
+2025-12-09 01:22:25 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 8.1% | Sys RAM: 13076 MB
+2025-12-09 01:22:31 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 5.6% | Sys RAM: 13044 MB
+2025-12-09 01:22:36 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 1.3% | Sys RAM: 13051 MB
+2025-12-09 01:22:41 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 3.6% | Sys RAM: 13032 MB
+2025-12-09 01:22:46 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 7.3% | Sys RAM: 13055 MB
+2025-12-09 01:22:51 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 4.9% | Sys RAM: 13053 MB
+2025-12-09 01:22:57 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 9.2% | Sys RAM: 12919 MB
+2025-12-09 01:23:02 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 10.1% | Sys RAM: 12942 MB
+2025-12-09 01:23:07 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 3.6% | Sys RAM: 12903 MB
+2025-12-09 01:23:12 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 1.3% | Sys RAM: 12896 MB
+2025-12-09 01:23:17 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 13.8% | Sys RAM: 12906 MB
+2025-12-09 01:23:23 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 0.0% | Sys RAM: 12891 MB
+2025-12-09 01:23:28 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 3.7% | Sys RAM: 12855 MB
+2025-12-09 01:23:33 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 1.3% | Sys RAM: 12846 MB
+2025-12-09 01:23:38 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 9.3% | Sys RAM: 12825 MB
+2025-12-09 01:23:43 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 0.0% | Sys RAM: 12816 MB
+2025-12-09 01:23:49 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 7.9% | Sys RAM: 12822 MB
+2025-12-09 01:23:54 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 6.7% | Sys RAM: 12818 MB
+2025-12-09 01:23:59 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 5.6% | Sys RAM: 12945 MB
+2025-12-09 01:24:04 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 0.0% | Sys RAM: 13069 MB
+2025-12-09 01:24:09 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 0.0% | Sys RAM: 12910 MB
+2025-12-09 01:24:15 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 10.6% | Sys RAM: 12864 MB
+2025-12-09 01:24:20 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 5.4% | Sys RAM: 12856 MB
+2025-12-09 01:24:25 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 3.5% | Sys RAM: 12855 MB
+2025-12-09 01:24:30 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 9.5% | Sys RAM: 12858 MB
+2025-12-09 01:24:35 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 7.3% | Sys RAM: 12926 MB
+2025-12-09 01:24:41 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.6 MB | Sys CPU: 6.1% | Sys RAM: 12895 MB
+2025-12-09 01:24:46 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 10.7% | Sys RAM: 12923 MB
+2025-12-09 01:24:51 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 7.9% | Sys RAM: 12972 MB
+2025-12-09 01:24:56 | INFO | Loop resources | Proc CPU: 14.2% | Proc RAM: 280.7 MB | Sys CPU: 3.7% | Sys RAM: 12971 MB
+2025-12-09 01:25:01 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 40.3% | Sys RAM: 13307 MB
+2025-12-09 01:25:07 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 0.0% | Sys RAM: 13277 MB
+2025-12-09 01:25:12 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 0.0% | Sys RAM: 13247 MB
+2025-12-09 01:25:17 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 0.0% | Sys RAM: 13046 MB
+2025-12-09 01:25:22 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 5.0% | Sys RAM: 13040 MB
+2025-12-09 01:25:27 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 26.8% | Sys RAM: 13183 MB
+2025-12-09 01:25:33 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 280.7 MB | Sys CPU: 21.1% | Sys RAM: 13065 MB
+2025-12-09 01:25:38 | INFO | Stop requested — watcher exiting
+2025-12-09 01:30:29 | INFO | Watcher starting up
+2025-12-09 01:30:29 | INFO | Watcher initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2025-12-09 01:30:29 | INFO | CUDA available: False | Using CPU
+2025-12-09 01:30:29 | INFO | CUDA not available; using CPU.
+2025-12-09 01:30:29 | INFO | Model device in use: cpu
+2025-12-09 01:30:29 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 224.9 MB | Sys CPU: 12.7% | Sys RAM: 13265 MB
+2025-12-09 01:30:34 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 225.0 MB | Sys CPU: 20.3% | Sys RAM: 13219 MB
+2025-12-09 01:30:39 | INFO | Stop requested — watcher exiting
+2025-12-09 01:35:55 | INFO | Watcher starting up
+2025-12-09 01:35:55 | INFO | Watcher initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2025-12-09 01:35:55 | INFO | CUDA available: True | GPU: NVIDIA GeForce RTX 4070 (index 0)
+2025-12-09 01:35:56 | INFO | Model YOLOv8-Face moved to cuda:0 | GPU: NVIDIA GeForce RTX 4070
+2025-12-09 01:35:56 | INFO | Model device in use: cuda:0
+2025-12-09 01:35:56 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 489.3 MB | Sys CPU: 34.1% | Sys RAM: 12097 MB
+2025-12-09 01:36:01 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 489.3 MB | Sys CPU: 16.3% | Sys RAM: 12458 MB
+2025-12-09 01:36:06 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 489.3 MB | Sys CPU: 6.6% | Sys RAM: 12310 MB
+2025-12-09 01:36:11 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 489.3 MB | Sys CPU: 2.5% | Sys RAM: 12302 MB
+2025-12-09 01:36:17 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 489.3 MB | Sys CPU: 4.1% | Sys RAM: 12249 MB
+2025-12-09 01:36:22 | INFO | Found 2 image(s). Processing...
+2025-12-09 01:36:22 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:36:22 | INFO | ▶ Processing image: original_image.png
+2025-12-09 01:36:22 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:36:22 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\original_image.png to 20251209_013622_175_original_image.png
+2025-12-09 01:36:22 | INFO | Step rename | Proc CPU: 0.0% | Proc RAM: 489.4 MB | Sys CPU: 9.1% | Sys RAM: 12217 MB
+2025-12-09 01:36:22 | INFO | Copying original to output: 20251209_013622_175_original_image.png -> original_20251209_013622_175_original_image.png
+2025-12-09 01:36:22 | INFO | Step copy   | Proc CPU: 0.0% | Proc RAM: 489.4 MB | Sys CPU: 7.1% | Sys RAM: 12219 MB
+2025-12-09 01:36:22 | INFO | Image 20251209_013622_175_original_image.png is in .png format. Conversion not required
+2025-12-09 01:36:22 | INFO | Step convert| Proc CPU: 0.0% | Proc RAM: 489.4 MB | Sys CPU: 12.1% | Sys RAM: 12219 MB
+2025-12-09 01:36:22 | INFO | Processing image 20251209_013622_175_original_image.png for detection
+2025-12-09 01:36:24 | INFO | Saved face coordinates to EXIF.
+2025-12-09 01:36:24 | INFO | ✓ Image detection completed for 20251209_013622_175_original_image.png in 1.62 seconds, found 4 face(s).
+2025-12-09 01:36:24 | INFO | Step detect | Proc CPU: 0.0% | Proc RAM: 1092.4 MB | Sys CPU: 9.4% | Sys RAM: 12822 MB
+2025-12-09 01:36:24 | INFO | Processing image 20251209_013622_175_original_image.png for blur
+2025-12-09 01:36:24 | INFO | Anonymized image saved to 20251209_013622_175_original_image.png
+2025-12-09 01:36:24 | INFO | ✓ Blur completed in 0.15 seconds
+2025-12-09 01:36:24 | INFO | Step blur   | Proc CPU: 0.0% | Proc RAM: 1093.7 MB | Sys CPU: 0.0% | Sys RAM: 12828 MB
+2025-12-09 01:36:24 | INFO | Moving anonymized image: 20251209_013622_175_original_image.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\20251209_013622_175_original_image.png
+2025-12-09 01:36:24 | INFO | ✓ Successfully finalized: 20251209_013622_175_original_image.png
+2025-12-09 01:36:24 | INFO | Step finalize| Proc CPU: 0.0% | Proc RAM: 1093.7 MB | Sys CPU: 11.4% | Sys RAM: 12827 MB
+2025-12-09 01:36:24 | INFO | Image processing time for 20251209_013622_175_original_image.png: 2.39 seconds
+2025-12-09 01:36:24 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:36:24 | INFO | ▶ Processing image: original_image2.png
+2025-12-09 01:36:24 | INFO | ════════════════════════════════════════════════════════════
+2025-12-09 01:36:24 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\original_image2.png to 20251209_013624_570_original_image2.png
+2025-12-09 01:36:24 | INFO | Step rename | Proc CPU: 0.0% | Proc RAM: 1093.7 MB | Sys CPU: 5.3% | Sys RAM: 12827 MB
+2025-12-09 01:36:24 | INFO | Copying original to output: 20251209_013624_570_original_image2.png -> original_20251209_013624_570_original_image2.png
+2025-12-09 01:36:24 | INFO | Step copy   | Proc CPU: 0.0% | Proc RAM: 1093.7 MB | Sys CPU: 0.0% | Sys RAM: 12827 MB
+2025-12-09 01:36:24 | INFO | Image 20251209_013624_570_original_image2.png is in .png format. Conversion not required
+2025-12-09 01:36:24 | INFO | Step convert| Proc CPU: 0.0% | Proc RAM: 1093.7 MB | Sys CPU: 0.0% | Sys RAM: 12827 MB
+2025-12-09 01:36:24 | INFO | Processing image 20251209_013624_570_original_image2.png for detection
+2025-12-09 01:36:25 | INFO | Saved face coordinates to EXIF.
+2025-12-09 01:36:25 | INFO | ✓ Image detection completed for 20251209_013624_570_original_image2.png in 0.13 seconds, found 5 face(s).
+2025-12-09 01:36:25 | INFO | Step detect | Proc CPU: 0.0% | Proc RAM: 1089.2 MB | Sys CPU: 0.0% | Sys RAM: 12831 MB
+2025-12-09 01:36:25 | INFO | Processing image 20251209_013624_570_original_image2.png for blur
+2025-12-09 01:36:25 | INFO | Anonymized image saved to 20251209_013624_570_original_image2.png
+2025-12-09 01:36:25 | INFO | ✓ Blur completed in 0.05 seconds
+2025-12-09 01:36:25 | INFO | Step blur   | Proc CPU: 0.0% | Proc RAM: 1089.2 MB | Sys CPU: 0.0% | Sys RAM: 12830 MB
+2025-12-09 01:36:25 | INFO | Moving anonymized image: 20251209_013624_570_original_image2.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\20251209_013624_570_original_image2.png
+2025-12-09 01:36:25 | INFO | ✓ Successfully finalized: 20251209_013624_570_original_image2.png
+2025-12-09 01:36:25 | INFO | Step finalize| Proc CPU: 0.0% | Proc RAM: 1089.2 MB | Sys CPU: 0.0% | Sys RAM: 12831 MB
+2025-12-09 01:36:25 | INFO | Image processing time for 20251209_013624_570_original_image2.png: 0.80 seconds
+2025-12-09 01:36:25 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 1089.2 MB | Sys CPU: 6.2% | Sys RAM: 12830 MB
+2025-12-09 01:36:30 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 1089.2 MB | Sys CPU: 2.4% | Sys RAM: 12813 MB
+2025-12-09 01:36:35 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 1089.2 MB | Sys CPU: 1.6% | Sys RAM: 12589 MB
+2025-12-09 01:36:41 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 1089.2 MB | Sys CPU: 1.2% | Sys RAM: 12594 MB
+2025-12-09 01:36:46 | INFO | Stop requested — watcher exiting

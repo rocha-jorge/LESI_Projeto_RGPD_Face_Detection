@@ -24,10 +24,10 @@ def ensure_processable_image(img_path: Path) -> Path:
                 elif im.mode != "RGB":
                     im = im.convert("RGB")
                 im.save(converted_path, format="JPEG", quality=90)
-        print(f"Converted {img_path.name} -> {converted_path.name}")
+        logging.info(f"Converted {img_path.name} -> {converted_path.name}")
         return converted_path
     except Exception as e:
-        print(f"Conversion failed for {img_path.name}: {e}")
+        logging.error(f"Conversion failed for {img_path.name}: {e}", exc_info=True)
         return img_path
 
 def convert(img: Path) -> tuple[bool, Path | None]:

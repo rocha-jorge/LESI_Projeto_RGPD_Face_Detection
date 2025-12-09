@@ -48,7 +48,7 @@ from utils.setup_model import setup_model
 from image_processing.list_images import list_images
 from app.image_processing_pipeline import process_image
 from input_output.handle_unsupported_files import handle_unsupported_file
-from utils.system_metrics import get_process_usage, get_system_usage
+from utils.system_metrics import get_process_usage, get_system_usage, log_resources_snapshot
 
 POLL_INTERVAL = int(os.environ.get("POLL_INTERVAL", "5"))
 
@@ -78,11 +78,13 @@ def main():
     _init_logging()
     logging.info("Watcher starting up")
 
+    # CUDA/GPU status is logged in setup_model during initialization
+
     # Ensure required directories exist before starting
     ensure_dirs()
 
     # Setup environment and initialize YOLO once (kept in memory for the life of the process)
-    model = setup_model(IMAGE_INPUT)
+    model = setup_model()
 
     while not stop_requested:
         try:
@@ -94,6 +96,8 @@ def main():
             # Process each supported image file
             if images:
                 logging.info(f"Found {len(images)} image(s). Processing...")
+                # Log system usage (centralized inside system_metrics)
+                log_resources_snapshot()
                 for img in images:
                     process_image(img, model)
                     
@@ -102,10 +106,7 @@ def main():
                 for unsupported in unsupported_files:
                     handle_unsupported_file(unsupported)
 
-            # Sleep before the next polling iteration
-            p_cpu, p_mem = get_process_usage(0.1)
-            s_cpu, s_mem = get_system_usage(0.1)
-            logging.info(f"Loop resources | Proc CPU: {p_cpu:.1f}% | Proc RAM: {p_mem:.1f} MB | Sys CPU: {s_cpu:.1f}% | Sys RAM: {s_mem:.0f} MB")
+            # Sleep before the next polling iteration (no periodic resource logs)
             time.sleep(POLL_INTERVAL)
 
         except Exception as e:

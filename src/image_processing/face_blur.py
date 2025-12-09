@@ -36,7 +36,7 @@ def _get_faces_from_exif(image_path):
         
         return faces
     except Exception as e:
-        print(f"Error reading EXIF data: {e}")
+        logging.error(f"Error reading EXIF data: {e}", exc_info=True)
         return []
 
 # --- HELPER TO BLUR FACES ---
@@ -52,7 +52,7 @@ def _apply_blur(image_path, output_path, faces):
         roi = img[y:y2, x:x2]
         blurred = cv2.blur(roi, (BLUR_STRENGTH, BLUR_STRENGTH))
         img[y:y2, x:x2] = blurred
-        print(f"Blurred face at: x={x}, y={y}, w={w}, h={h}")
+        logging.debug(f"Blurred face at: x={x}, y={y}, w={w}, h={h}")
     
     cv2.imwrite(str(output_path), img)
 
