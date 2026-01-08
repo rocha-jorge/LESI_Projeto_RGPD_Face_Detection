@@ -1,0 +1,22 @@
+reuniao Lufer 11/12/2025
+
+	- funcionar por trigger
+
+	- fazer por matriculas
+
+	- encriptar a original com password
+
+	- função enviar por email ( ou para algum lado )
+
+
+Capitulos:
+1 introducao
+2 estado da arte
+3 analise e specificacao do que fazer UML BPMN
+4 implementação do agente AI
+
+
+o caminho de output deve ler de um ficheiro externo e só na falta de um, utilizar o default
+
+
+melorias dias para atendimeneto: terca quarta e quinta

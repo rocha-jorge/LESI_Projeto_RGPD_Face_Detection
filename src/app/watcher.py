@@ -78,12 +78,10 @@ def main():
     _init_logging()
     logging.info("Watcher starting up")
 
-    # CUDA/GPU status is logged in setup_model during initialization
-
     # Ensure required directories exist before starting
     ensure_dirs()
 
-    # Setup environment and initialize YOLO once (kept in memory for the life of the process)
+    # Setup environment, model and hardware
     model = setup_model()
 
     while not stop_requested:
@@ -93,12 +91,11 @@ def main():
             images = [p for p in all_files if p in set(list_images(IMAGE_INPUT))]
             unsupported_files = [p for p in all_files if p not in images]
             
-            # Process each supported image file
+            # If images found
             if images:
                 logging.info(f"Found {len(images)} image(s). Processing...")
-                # Log system usage (centralized inside system_metrics)
-                log_resources_snapshot()
-                for img in images:
+                log_resources_snapshot()                                            # Log a snapshot of system/process resource usage before processing batch
+                for img in images:                                                  # Process each image
                     process_image(img, model)
                     
             # After processing supported images, handle unsupported files

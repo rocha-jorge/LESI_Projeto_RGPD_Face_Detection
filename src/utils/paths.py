@@ -5,6 +5,8 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 # Standard directories for image processing
+
+#if ficheiro externo, usar externo, senao usar estes por degfaul
 IMAGE_INPUT = Path(os.environ.get("IMAGE_INPUT") or (PROJECT_ROOT / "image_input"))
 IMAGE_OUTPUT = Path(os.environ.get("IMAGE_OUTPUT") or (PROJECT_ROOT / "image_output"))
 IMAGE_ERROR = Path(os.environ.get("IMAGE_ERROR") or (PROJECT_ROOT / "image_error"))
