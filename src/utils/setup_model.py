@@ -99,15 +99,19 @@ def _move_model_to_device(model: YOLO) -> None:
 
 def setup_model(model_key: str = DEFAULT_MODEL_KEY, input_dir: Path = IMAGE_INPUT) -> YOLO:
     """Initialize and return a YOLO model for the requested key."""
-    # Return cached model if available
+    config = _get_model_config(model_key)
+    # Return cached model if available (still log weights for visibility)
     cached = _MODEL_CACHE.get(model_key)
     if cached is not None:
+        try:
+            logging.info(f"INFO | {config.display_name} weights: {config.weights_path.name}")
+        except Exception:
+            pass
         return cached
-
-    config = _get_model_config(model_key)
     logging.info(f"{config.display_name} initializing. Monitoring: {input_dir}")
     log_cuda_status()
     model = _prepare_weights(config)
+    logging.info(f"INFO | {config.display_name} weights: {config.weights_path.name}")
     _move_model_to_device(model)
     device_str = str(getattr(model, "device", "cpu"))
     logging.info(f"Model device in use: {device_str}")

@@ -1,4 +1,5 @@
 import argparse
+import os
 import logging
 import sys
 from pathlib import Path
@@ -13,16 +14,40 @@ from image_processing.face_blur import blur_faces
 from utils.setup_model import setup_model
 
 
+def _read_threshold(var_name: str, default: float) -> float:
+    try:
+        val = float(os.environ.get(var_name, str(default)))
+        if 0.0 <= val <= 1.0:
+            return val
+        logging.warning(f"Invalid {var_name} value '{val}', using default {default}")
+        return default
+    except Exception:
+        logging.warning(f"Could not parse {var_name}, using default {default}")
+        return default
+
+
 def detect_license_plates_on_image(img_path: Path, model: YOLO) -> list[tuple[int, int, int, int]]:
     """Run license plate detection on a single image and return list of boxes (x,y,w,h)."""
     plates: list[tuple[int, int, int, int]] = []
     try:
-        results = model(str(img_path))
+        conf_thr = _read_threshold("PLATE_CONF_THRESHOLD", 0.25)
+        logging.debug(f"Confidence threshold (plate): {conf_thr}")
+        results = model(str(img_path), conf=conf_thr, verbose=False)
     except Exception as exc:
         logging.error(f"Model inference failed for {img_path.name}: {exc}", exc_info=True)
         return plates
 
     for result in results:
+        # Log Ultralytics per-stage speed in our format
+        spd = getattr(result, "speed", None)
+        if isinstance(spd, dict):
+            pp = spd.get("preprocess")
+            inf = spd.get("inference")
+            post = spd.get("postprocess")
+            if pp is not None and inf is not None and post is not None:
+                logging.debug(
+                    f"DEBUG | Ultralytics inference stats: preprocess={pp:.1f}ms inference={inf:.1f}ms postprocess={post:.1f}ms"
+                )
         boxes = result.boxes.xyxy.cpu().numpy()
         for box in boxes:
             x1, y1, x2, y2 = map(int, box)

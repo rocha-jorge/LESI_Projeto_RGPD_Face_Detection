@@ -1,8 +1,21 @@
 from pathlib import Path
+import os
 import logging
 import cv2
 from ultralytics import YOLO
 from input_output.move_to_error import move_to_error
+
+
+def _read_threshold(var_name: str, default: float) -> float:
+    try:
+        val = float(os.environ.get(var_name, str(default)))
+        if 0.0 <= val <= 1.0:
+            return val
+        logging.warning(f"Invalid {var_name} value '{val}', using default {default}")
+        return default
+    except Exception:
+        logging.warning(f"Could not parse {var_name}, using default {default}")
+        return default
 
 
 def detector_face(img_file: Path, model: YOLO) -> list[tuple[int, int, int, int, float]]:
@@ -18,7 +31,21 @@ def detector_face(img_file: Path, model: YOLO) -> list[tuple[int, int, int, int,
         logging.error(f"Could not read {img_file.name} for detection")
         return []
 
-    results = model(img)
+    conf_thr = _read_threshold("FACE_CONF_THRESHOLD", 0.25)
+    logging.debug(f"Confidence threshold (face): {conf_thr}")
+    results = model(img, conf=conf_thr, verbose=False)
+
+    # Log Ultralytics per-stage speed in our format
+    for res in results:
+        spd = getattr(res, "speed", None)
+        if isinstance(spd, dict):
+            pp = spd.get("preprocess")
+            inf = spd.get("inference")
+            post = spd.get("postprocess")
+            if pp is not None and inf is not None and post is not None:
+                logging.debug(
+                    f"DEBUG | Ultralytics inference stats: preprocess={pp:.1f}ms inference={inf:.1f}ms postprocess={post:.1f}ms"
+                )
     faces_coords: list[tuple[int, int, int, int, float]] = []
     for result in results:
         boxes = result.boxes.xyxy.cpu().numpy()
