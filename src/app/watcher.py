@@ -76,13 +76,26 @@ def main():
 
     # Initialize logging
     _init_logging()
-    logging.info("Watcher starting up")
+    logging.info("INFO  Agent started")
 
     # Ensure required directories exist before starting
     ensure_dirs()
 
     # Setup environment, model and hardware
     model = setup_model()
+    # Preload secondary model for clear lifecycle logging and reduced cold-start
+    try:
+        setup_model("license_plate")
+        logging.info("INFO  Detection models loaded (YOLOv8-Face, YOLOv8-LicensePlate)")
+    except Exception:
+        logging.warning("WARNING Could not preload license plate model; it will be loaded on demand.")
+
+    # Log inference device selection (face model)
+    try:
+        device_str = str(getattr(model, "device", "cpu"))
+        logging.info(f"INFO  Inference device selected: {'GPU' if 'cuda' in device_str else 'CPU'}")
+    except Exception:
+        logging.warning("WARNING Unable to determine inference device.")
 
     while not stop_requested:
         try:
@@ -113,7 +126,7 @@ def main():
             logging.error("Watcher error", exc_info=True)
             time.sleep(POLL_INTERVAL)             # Even on unexpected errors, keep polling after a short delay
 
-    logging.info("Stop requested — watcher exiting")
+    logging.info("INFO  Agent shutting down")
 
 if __name__ == "__main__":
     main()

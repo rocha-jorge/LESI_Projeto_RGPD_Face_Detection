@@ -40,6 +40,7 @@ def process_image(
     # 2) Copy original to output
     if not copy_original_to_output(img):
         return False
+    logging.info("Original image copied to secure output area")
     # Metrics suppressed
 
     # 3) Convert if needed (BMP/GIF -> JPEG)
@@ -52,17 +53,27 @@ def process_image(
     # 4) Delete original metadata to ensure privacy
     if not strip_all_metadata(img):
         return False
+    logging.info("Original metadata stripped")
 
     # 5) Detect faces
+    face_start = time.perf_counter()
     ok, faces = detect_faces(img, model)
     if not ok:
         return False
+    face_elapsed = time.perf_counter() - face_start
+    # Performance log for face model
+    device_str = str(getattr(model, "device", "cpu"))
+    logging.info(f"Face detection time: {int(face_elapsed*1000)} ms ({device_str})")
     # Metrics suppressed
 
     # 6) Detect license plates (returns list of boxes)
     try:
         lp_model = setup_model("license_plate", input_dir=IMAGE_INPUT)
+        plate_start = time.perf_counter()
         plates = detect_license_plates_on_image(img, lp_model)
+        plate_elapsed = time.perf_counter() - plate_start
+        lp_device_str = str(getattr(lp_model, "device", "cpu"))
+        logging.info(f"Plate detection time: {int(plate_elapsed*1000)} ms ({lp_device_str})")
     except Exception:
         logging.error(f"Could not evaluate license plate detection for {img.name}", exc_info=True)
         return False
@@ -74,17 +85,25 @@ def process_image(
     if plates:
         combined_regions.extend(plates)
 
+    personal_data_detected = bool(combined_regions)
+    logging.info(f"Personal data detected: {'yes' if personal_data_detected else 'no'}")
+    logging.info(f"Detected regions: faces={len(faces) if faces else 0}, plates={len(plates) if plates else 0}")
+
     if combined_regions:
         if not blur_faces(img, combined_regions):
             return False
+        logging.info("Image anonymized successfully")
     else:
         logging.info(f"No faces or license plates reported for {img.name}. Skipping blur")
 
     # 8) Move anonymized file to output
     if not move_anon_image_to_output(img):
         return False
+    logging.info("No personal data stored beyond processing window")
     # Metrics suppressed
 
     elapsed = time.perf_counter() - start_ts
-    logging.info(f"Image processing time for {img.name}: {elapsed:.2f} seconds")
+    hw = device_str if personal_data_detected else str(getattr(model, "device", "cpu"))
+    logging.info(f"Processing time: {int(elapsed*1000)} ms ({hw})")
+    logging.info("Image processed")
     return True
