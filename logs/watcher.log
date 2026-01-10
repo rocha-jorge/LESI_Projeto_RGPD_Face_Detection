@@ -422,3 +422,449 @@ TypeError: move_anon_image_to_output() missing 2 required positional arguments: 
 2025-12-09 01:36:35 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 1089.2 MB | Sys CPU: 1.6% | Sys RAM: 12589 MB
 2025-12-09 01:36:41 | INFO | Loop resources | Proc CPU: 0.0% | Proc RAM: 1089.2 MB | Sys CPU: 1.2% | Sys RAM: 12594 MB
 2025-12-09 01:36:46 | INFO | Stop requested — watcher exiting
+2026-01-10 21:48:04 | INFO | Agent started
+2026-01-10 21:48:04 | INFO | Ultralytics package version: 8.3.235
+2026-01-10 21:48:04 | INFO | CUDA available: True | GPU: NVIDIA GeForce RTX 4070 (index 0)
+2026-01-10 21:48:04 | INFO | Inference device selected: GPU
+2026-01-10 21:48:04 | INFO | 
+2026-01-10 21:48:04 | INFO | YOLOv8-Face initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2026-01-10 21:48:04 | INFO | YOLOv8-Face weights loaded: yolov8n-face.pt
+2026-01-10 21:48:04 | INFO | Model loaded on device: cuda:0 (NVIDIA GeForce RTX 4070)
+2026-01-10 21:48:04 | INFO | 
+2026-01-10 21:48:04 | INFO | YOLOv8-LicensePlate initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2026-01-10 21:48:04 | INFO | YOLOv8-LicensePlate weights loaded: yolov8n-license-plate.pt
+2026-01-10 21:48:04 | INFO | Model loaded on device: cuda:0 (NVIDIA GeForce RTX 4070)
+2026-01-10 21:48:04 | INFO | 
+2026-01-10 21:48:04 | INFO | Detection models loaded (YOLOv8-Face, YOLOv8-LicensePlate)
+2026-01-10 21:48:04 | INFO | Detection confidence threshold (face): 0.25
+2026-01-10 21:48:04 | INFO | Detection confidence threshold (plate): 0.25
+2026-01-10 21:53:09 | INFO | Agent shutting down
+2026-01-10 21:55:58 | INFO | Agent started
+2026-01-10 21:55:58 | INFO | Ultralytics package version: 8.3.235
+2026-01-10 21:55:58 | INFO | CUDA available: True | GPU: NVIDIA GeForce RTX 4070 (index 0)
+2026-01-10 21:55:58 | INFO | Inference device selected: GPU
+2026-01-10 21:55:58 | INFO | 
+2026-01-10 21:55:58 | INFO | YOLOv8-Face initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2026-01-10 21:55:58 | INFO | YOLOv8-Face weights loaded: yolov8n-face.pt
+2026-01-10 21:55:58 | INFO | Model loaded on device: cuda:0 (NVIDIA GeForce RTX 4070)
+2026-01-10 21:55:58 | INFO | 
+2026-01-10 21:55:58 | INFO | YOLOv8-LicensePlate initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2026-01-10 21:55:58 | INFO | YOLOv8-LicensePlate weights loaded: yolov8n-license-plate.pt
+2026-01-10 21:55:58 | INFO | Model loaded on device: cuda:0 (NVIDIA GeForce RTX 4070)
+2026-01-10 21:55:58 | INFO | 
+2026-01-10 21:55:58 | INFO | Detection models loaded (YOLOv8-Face, YOLOv8-LicensePlate)
+2026-01-10 21:55:58 | INFO | Detection confidence threshold (face): 0.25
+2026-01-10 21:55:58 | INFO | Detection confidence threshold (plate): 0.25
+2026-01-10 21:57:33 | INFO | Agent shutting down
+2026-01-10 21:57:39 | INFO | Agent started
+2026-01-10 21:57:39 | INFO | Ultralytics package version: 8.3.235
+2026-01-10 21:57:39 | INFO | CUDA available: True | GPU: NVIDIA GeForce RTX 4070 (index 0)
+2026-01-10 21:57:39 | INFO | Inference device selected: GPU
+2026-01-10 21:57:39 | INFO | 
+2026-01-10 21:57:39 | INFO | YOLOv8-Face initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2026-01-10 21:57:39 | INFO | YOLOv8-Face weights loaded: yolov8n-face.pt
+2026-01-10 21:57:39 | INFO | Model loaded on device: cuda:0 (NVIDIA GeForce RTX 4070)
+2026-01-10 21:57:39 | INFO | 
+2026-01-10 21:57:39 | INFO | YOLOv8-LicensePlate initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2026-01-10 21:57:39 | INFO | YOLOv8-LicensePlate weights loaded: yolov8n-license-plate.pt
+2026-01-10 21:57:39 | INFO | Model loaded on device: cuda:0 (NVIDIA GeForce RTX 4070)
+2026-01-10 21:57:39 | INFO | 
+2026-01-10 21:57:39 | INFO | Detection models loaded (YOLOv8-Face, YOLOv8-LicensePlate)
+2026-01-10 21:57:39 | INFO | Detection confidence threshold (face): 0.25
+2026-01-10 21:57:39 | INFO | Detection confidence threshold (plate): 0.25
+2026-01-10 21:57:39 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 21:57:39 | INFO | ✅ Agent setup completed
+2026-01-10 21:57:39 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 21:58:24 | INFO | Agent shutting down
+2026-01-10 22:02:17 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:02:17 | INFO | ▶ Agent started
+2026-01-10 22:02:17 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:02:17 | INFO | Ultralytics package version: 8.3.235
+2026-01-10 22:02:17 | INFO | CUDA available: True | GPU: NVIDIA GeForce RTX 4070 (index 0)
+2026-01-10 22:02:17 | INFO | Inference device selected: GPU
+2026-01-10 22:02:17 | INFO | 
+2026-01-10 22:02:17 | INFO | YOLOv8-Face initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2026-01-10 22:02:17 | INFO | YOLOv8-Face weights loaded: yolov8n-face.pt
+2026-01-10 22:02:18 | INFO | Model loaded on device: cuda:0 (NVIDIA GeForce RTX 4070)
+2026-01-10 22:02:18 | INFO | 
+2026-01-10 22:02:18 | INFO | YOLOv8-LicensePlate initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2026-01-10 22:02:18 | INFO | YOLOv8-LicensePlate weights loaded: yolov8n-license-plate.pt
+2026-01-10 22:02:18 | INFO | Model loaded on device: cuda:0 (NVIDIA GeForce RTX 4070)
+2026-01-10 22:02:18 | INFO | 
+2026-01-10 22:02:18 | INFO | Detection models loaded (YOLOv8-Face, YOLOv8-LicensePlate)
+2026-01-10 22:02:18 | INFO | Detection confidence threshold (face): 0.25
+2026-01-10 22:02:18 | INFO | Detection confidence threshold (plate): 0.25
+2026-01-10 22:02:18 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:02:18 | INFO | ✅ Agent setup completed
+2026-01-10 22:02:18 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:02:38 | INFO | Found 3 image(s). Processing...
+2026-01-10 22:02:38 | INFO | System resource usage | CPU 18.0% | RAM 14259 MB/16125 MB (88.4%)
+2026-01-10 22:02:38 | INFO | Agent resource usage | CPU 0.0% | RAM 501 MB
+2026-01-10 22:02:38 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:02:38 | INFO | ▶ Processing image: original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_20260110_191554_875_original_20260110_190122_446_original_c1bb56cd.png
+2026-01-10 22:02:38 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:02:38 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_20260110_191554_875_original_20260110_190122_446_original_c1bb56cd.png to 20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_20260110_191554_875_original_20260110_190122_446_original_c1bb56cd.png
+2026-01-10 22:02:38 | INFO | Copying original to output: 20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_20260110_191554_875_original_3277e128.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\encrypted_originals\original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_20260110_191554_875_original_3277e128.png
+2026-01-10 22:02:38 | INFO | Original image copied to secure output area
+2026-01-10 22:02:38 | INFO | Image 20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_20260110_191554_875_original_3277e128.png is in .png format. Conversion not required
+2026-01-10 22:02:38 | INFO | Stripping metadata from 20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_20260110_191554_875_original_3277e128.png
+2026-01-10 22:02:38 | INFO | ✓ Metadata removed for 20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_20260110_191554_875_original_3277e128.png
+2026-01-10 22:02:38 | INFO | Original metadata stripped
+2026-01-10 22:02:39 | INFO | Detected 5 face(s) in 20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_20260110_191554_875_original_3277e128.png.
+2026-01-10 22:02:39 | INFO | Face detection | Time: 813 ms | Device: cuda:0
+2026-01-10 22:02:39 | INFO | Plate detection | Time: 99 ms | Device: cuda:0
+2026-01-10 22:02:39 | INFO | Detected regions: faces=5, plates=0
+2026-01-10 22:02:39 | INFO | Personal data detected: yes
+2026-01-10 22:02:39 | INFO | Processing image 20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_20260110_191554_875_original_3277e128.png for blur
+2026-01-10 22:02:39 | INFO | Image anonymized successfully | Blur time: 0.05 s
+2026-01-10 22:02:39 | INFO | Moving anonymized image: 20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_20260110_191554_875_original_3277e128.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\anonimized\20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_20260110_191554_875_original_3277e128.png
+2026-01-10 22:02:39 | INFO | ✓ Successfully finalized: 20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_20260110_191554_875_original_3277e128.png
+2026-01-10 22:02:39 | INFO | No personal data stored beyond processing window
+2026-01-10 22:02:39 | INFO | Processing time: 1119 ms (cuda:0)
+2026-01-10 22:02:39 | INFO | ✔ Image processed successfully
+2026-01-10 22:02:39 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:02:39 | INFO | ▶ Processing image: original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_20260110_204230_417_original_20260110_191553_630_original_c8f73daf.png
+2026-01-10 22:02:39 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:02:39 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_20260110_204230_417_original_20260110_191553_630_original_c8f73daf.png to 20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_20260110_204230_417_original_20260110_191553_630_original_c8f73daf.png
+2026-01-10 22:02:39 | INFO | Copying original to output: 20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_20260110_204230_417_original_9f8d6060.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\encrypted_originals\original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_20260110_204230_417_original_9f8d6060.png
+2026-01-10 22:02:39 | INFO | Original image copied to secure output area
+2026-01-10 22:02:39 | INFO | Image 20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_20260110_204230_417_original_9f8d6060.png is in .png format. Conversion not required
+2026-01-10 22:02:39 | INFO | Stripping metadata from 20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_20260110_204230_417_original_9f8d6060.png
+2026-01-10 22:02:39 | INFO | ✓ Metadata removed for 20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_20260110_204230_417_original_9f8d6060.png
+2026-01-10 22:02:39 | INFO | Original metadata stripped
+2026-01-10 22:02:39 | INFO | Detected 4 face(s) in 20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_20260110_204230_417_original_9f8d6060.png.
+2026-01-10 22:02:39 | INFO | Face detection | Time: 111 ms | Device: cuda:0
+2026-01-10 22:02:39 | INFO | Plate detection | Time: 77 ms | Device: cuda:0
+2026-01-10 22:02:39 | INFO | Detected regions: faces=4, plates=1
+2026-01-10 22:02:39 | INFO | Personal data detected: yes
+2026-01-10 22:02:39 | INFO | Processing image 20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_20260110_204230_417_original_9f8d6060.png for blur
+2026-01-10 22:02:40 | INFO | Image anonymized successfully | Blur time: 0.14 s
+2026-01-10 22:02:40 | INFO | Moving anonymized image: 20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_20260110_204230_417_original_9f8d6060.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\anonimized\20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_20260110_204230_417_original_9f8d6060.png
+2026-01-10 22:02:40 | INFO | ✓ Successfully finalized: 20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_20260110_204230_417_original_9f8d6060.png
+2026-01-10 22:02:40 | INFO | No personal data stored beyond processing window
+2026-01-10 22:02:40 | INFO | Processing time: 672 ms (cuda:0)
+2026-01-10 22:02:40 | INFO | ✔ Image processed successfully
+2026-01-10 22:02:40 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:02:40 | INFO | ▶ Processing image: original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_20260110_205718_122_original_20260110_205712_068_image.png
+2026-01-10 22:02:40 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:02:40 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_20260110_205718_122_original_20260110_205712_068_image.png to 20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_20260110_205718_122_original_20260110_205712_068_image.png
+2026-01-10 22:02:40 | INFO | Copying original to output: 20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_20260110_205718_122_original_b38799bd.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\encrypted_originals\original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_20260110_205718_122_original_b38799bd.png
+2026-01-10 22:02:40 | INFO | Original image copied to secure output area
+2026-01-10 22:02:40 | INFO | Image 20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_20260110_205718_122_original_b38799bd.png is in .png format. Conversion not required
+2026-01-10 22:02:40 | INFO | Stripping metadata from 20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_20260110_205718_122_original_b38799bd.png
+2026-01-10 22:02:40 | INFO | ✓ Metadata removed for 20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_20260110_205718_122_original_b38799bd.png
+2026-01-10 22:02:40 | INFO | Original metadata stripped
+2026-01-10 22:02:40 | INFO | Detected 0 face(s) in 20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_20260110_205718_122_original_b38799bd.png.
+2026-01-10 22:02:40 | INFO | Face detection | Time: 31 ms | Device: cuda:0
+2026-01-10 22:02:40 | INFO | Plate detection | Time: 32 ms | Device: cuda:0
+2026-01-10 22:02:40 | INFO | Detected regions: faces=0, plates=1
+2026-01-10 22:02:40 | INFO | Personal data detected: yes
+2026-01-10 22:02:40 | INFO | Processing image 20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_20260110_205718_122_original_b38799bd.png for blur
+2026-01-10 22:02:40 | INFO | Image anonymized successfully | Blur time: 0.01 s
+2026-01-10 22:02:40 | INFO | Moving anonymized image: 20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_20260110_205718_122_original_b38799bd.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\anonimized\20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_20260110_205718_122_original_b38799bd.png
+2026-01-10 22:02:40 | INFO | ✓ Successfully finalized: 20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_20260110_205718_122_original_b38799bd.png
+2026-01-10 22:02:40 | INFO | No personal data stored beyond processing window
+2026-01-10 22:02:40 | INFO | Processing time: 111 ms (cuda:0)
+2026-01-10 22:02:40 | INFO | ✔ Image processed successfully
+2026-01-10 22:02:40 | INFO | Batch completed | Images processed: 3 | Total time: 1904 ms
+2026-01-10 22:13:55 | INFO | Agent shutting down
+2026-01-10 22:15:01 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:15:01 | INFO | ▶ Agent started
+2026-01-10 22:15:01 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:15:01 | INFO | Ultralytics package version: 8.3.235
+2026-01-10 22:15:01 | INFO | CUDA available: True | GPU: NVIDIA GeForce RTX 4070 (index 0)
+2026-01-10 22:15:01 | INFO | Inference device selected: GPU
+2026-01-10 22:15:01 | INFO | 
+2026-01-10 22:15:01 | INFO | YOLOv8-Face initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2026-01-10 22:15:01 | INFO | YOLOv8-Face weights loaded: yolov8n-face.pt
+2026-01-10 22:15:01 | INFO | Model loaded on device: cuda:0 (NVIDIA GeForce RTX 4070)
+2026-01-10 22:15:01 | INFO | 
+2026-01-10 22:15:01 | INFO | YOLOv8-LicensePlate initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2026-01-10 22:15:01 | INFO | YOLOv8-LicensePlate weights loaded: yolov8n-license-plate.pt
+2026-01-10 22:15:01 | INFO | Model loaded on device: cuda:0 (NVIDIA GeForce RTX 4070)
+2026-01-10 22:15:01 | INFO | 
+2026-01-10 22:15:01 | INFO | Detection models loaded (YOLOv8-Face, YOLOv8-LicensePlate)
+2026-01-10 22:15:01 | INFO | Detection confidence threshold (face): 0.25
+2026-01-10 22:15:01 | INFO | Detection confidence threshold (plate): 0.25
+2026-01-10 22:15:01 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:15:01 | INFO | ✅ Agent setup completed
+2026-01-10 22:15:01 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:15:11 | INFO | Found 1 image(s). Processing...
+2026-01-10 22:15:11 | INFO | System resource usage | CPU 5.0% | RAM 14322 MB/16125 MB (88.8%)
+2026-01-10 22:15:11 | INFO | Agent resource usage | CPU 0.0% | RAM 502 MB
+2026-01-10 22:15:11 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:15:11 | INFO | ▶ Processing image: original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_20260110_191554_875_original_3277e128.png
+2026-01-10 22:15:11 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:15:11 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_20260110_191554_875_original_3277e128.png to 20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_20260110_191554_875_original_3277e128.png
+2026-01-10 22:15:11 | INFO | Copying original to output: 20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_f25b9b7b.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\encrypted_originals\original_20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_f25b9b7b.png
+2026-01-10 22:15:11 | INFO | Original image copied to secure output area
+2026-01-10 22:15:11 | INFO | Image 20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_f25b9b7b.png is in .png format. Conversion not required
+2026-01-10 22:15:11 | INFO | Stripping metadata from 20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_f25b9b7b.png
+2026-01-10 22:15:11 | INFO | ✓ Metadata removed for 20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_f25b9b7b.png
+2026-01-10 22:15:11 | INFO | Original metadata stripped
+2026-01-10 22:15:12 | INFO | Detected 5 face(s) in 20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_f25b9b7b.png.
+2026-01-10 22:15:12 | INFO | Face detection | Time: 697 ms | Device: cuda:0
+2026-01-10 22:15:12 | INFO | Plate detection | Time: 71 ms | Device: cuda:0
+2026-01-10 22:15:12 | INFO | Detected regions: faces=5, plates=0
+2026-01-10 22:15:12 | INFO | Personal data detected: yes
+2026-01-10 22:15:12 | INFO | Processing image 20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_f25b9b7b.png for blur
+2026-01-10 22:15:12 | INFO | Image anonymized successfully | Blur time: 0.04 s
+2026-01-10 22:15:12 | INFO | Moving anonymized image: 20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_f25b9b7b.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\anonimized\20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_f25b9b7b.png
+2026-01-10 22:15:12 | INFO | ✓ Successfully finalized: 20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_f25b9b7b.png
+2026-01-10 22:15:12 | INFO | No personal data stored beyond processing window
+2026-01-10 22:15:12 | INFO | Processing time: 964 ms (cuda:0)
+2026-01-10 22:15:12 | INFO | ✔ Image processed successfully
+2026-01-10 22:15:12 | INFO | Batch completed | Images processed: 1 | Total time: 964 ms
+2026-01-10 22:25:07 | INFO | Agent shutting down
+2026-01-10 22:25:27 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:25:27 | INFO | ▶ Agent started
+2026-01-10 22:25:27 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:25:27 | INFO | Ultralytics package version: 8.3.235
+2026-01-10 22:25:27 | INFO | CUDA available: True | GPU: NVIDIA GeForce RTX 4070 (index 0)
+2026-01-10 22:25:27 | INFO | Inference device selected: GPU
+2026-01-10 22:25:27 | INFO | 
+2026-01-10 22:25:27 | INFO | YOLOv8-Face initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2026-01-10 22:25:27 | INFO | YOLOv8-Face weights loaded: yolov8n-face.pt
+2026-01-10 22:25:27 | INFO | Model loaded on device: cuda:0 (NVIDIA GeForce RTX 4070)
+2026-01-10 22:25:27 | INFO | 
+2026-01-10 22:25:27 | INFO | YOLOv8-LicensePlate initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2026-01-10 22:25:27 | INFO | YOLOv8-LicensePlate weights loaded: yolov8n-license-plate.pt
+2026-01-10 22:25:27 | INFO | Model loaded on device: cuda:0 (NVIDIA GeForce RTX 4070)
+2026-01-10 22:25:27 | INFO | 
+2026-01-10 22:25:27 | INFO | Detection models loaded (YOLOv8-Face, YOLOv8-LicensePlate)
+2026-01-10 22:25:27 | INFO | Detection confidence threshold (face): 0.25
+2026-01-10 22:25:27 | INFO | Detection confidence threshold (plate): 0.25
+2026-01-10 22:25:27 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:25:27 | INFO | ✅ Agent setup completed
+2026-01-10 22:25:27 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:25:27 | INFO | Originals encryption: disabled
+2026-01-10 22:28:37 | INFO | Found 1 image(s). Processing...
+2026-01-10 22:28:37 | INFO | System resource usage | CPU 48.8% | RAM 12568 MB/16125 MB (77.9%)
+2026-01-10 22:28:37 | INFO | Agent resource usage | CPU 0.0% | RAM 502 MB
+2026-01-10 22:28:37 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:28:37 | INFO | ▶ Processing image: original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_20260110_204230_417_original_9f8d6060.png
+2026-01-10 22:28:37 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:28:37 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_20260110_204230_417_original_9f8d6060.png to 20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_20260110_204230_417_original_9f8d6060.png
+2026-01-10 22:28:37 | INFO | Copying original to output: 20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_fe9adef1.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\encrypted_originals\original_20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_fe9adef1.png
+2026-01-10 22:28:37 | INFO | Original stored in encrypted_originals
+2026-01-10 22:28:37 | INFO | Image 20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_fe9adef1.png is in .png format. Conversion not required
+2026-01-10 22:28:37 | INFO | Stripping metadata from 20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_fe9adef1.png
+2026-01-10 22:28:38 | INFO | ✓ Metadata removed for 20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_fe9adef1.png
+2026-01-10 22:28:38 | INFO | Original metadata stripped
+2026-01-10 22:28:38 | INFO | Detected 4 face(s) in 20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_fe9adef1.png.
+2026-01-10 22:28:38 | INFO | Face detection | Time: 624 ms | Device: cuda:0
+2026-01-10 22:28:38 | INFO | Plate detection | Time: 96 ms | Device: cuda:0
+2026-01-10 22:28:38 | INFO | Detected regions: faces=4, plates=1
+2026-01-10 22:28:38 | INFO | Personal data detected: yes
+2026-01-10 22:28:38 | INFO | Processing image 20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_fe9adef1.png for blur
+2026-01-10 22:28:38 | INFO | Image anonymized successfully | Blur time: 0.14 s
+2026-01-10 22:28:38 | INFO | Moving anonymized image: 20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_fe9adef1.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\anonimized\20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_fe9adef1.png
+2026-01-10 22:28:38 | INFO | ✓ Successfully finalized: 20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_fe9adef1.png
+2026-01-10 22:28:38 | INFO | No personal data stored beyond processing window
+2026-01-10 22:28:38 | INFO | Processing time: 1260 ms (cuda:0)
+2026-01-10 22:28:38 | INFO | ✔ Image processed successfully
+2026-01-10 22:28:38 | INFO | Batch completed | Images processed: 1 | Total time: 1260 ms
+2026-01-10 22:29:08 | INFO | Found 2 image(s). Processing...
+2026-01-10 22:29:09 | INFO | System resource usage | CPU 5.5% | RAM 12989 MB/16125 MB (80.6%)
+2026-01-10 22:29:09 | INFO | Agent resource usage | CPU 0.0% | RAM 1099 MB
+2026-01-10 22:29:09 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:29:09 | INFO | ▶ Processing image: original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_20260110_205718_122_original_b38799bd.png
+2026-01-10 22:29:09 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:29:09 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_20260110_205718_122_original_b38799bd.png to 20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_20260110_205718_122_original_b38799bd.png
+2026-01-10 22:29:09 | INFO | Copying original to output: 20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_637d2428.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\encrypted_originals\original_20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_637d2428.png
+2026-01-10 22:29:09 | INFO | Original stored in encrypted_originals
+2026-01-10 22:29:09 | INFO | Image 20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_637d2428.png is in .png format. Conversion not required
+2026-01-10 22:29:09 | INFO | Stripping metadata from 20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_637d2428.png
+2026-01-10 22:29:09 | INFO | ✓ Metadata removed for 20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_637d2428.png
+2026-01-10 22:29:09 | INFO | Original metadata stripped
+2026-01-10 22:29:09 | INFO | Detected 0 face(s) in 20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_637d2428.png.
+2026-01-10 22:29:09 | INFO | Face detection | Time: 74 ms | Device: cuda:0
+2026-01-10 22:29:09 | INFO | Plate detection | Time: 22 ms | Device: cuda:0
+2026-01-10 22:29:09 | INFO | Detected regions: faces=0, plates=1
+2026-01-10 22:29:09 | INFO | Personal data detected: yes
+2026-01-10 22:29:09 | INFO | Processing image 20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_637d2428.png for blur
+2026-01-10 22:29:09 | INFO | Image anonymized successfully | Blur time: 0.01 s
+2026-01-10 22:29:09 | INFO | Moving anonymized image: 20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_637d2428.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\anonimized\20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_637d2428.png
+2026-01-10 22:29:09 | INFO | ✓ Successfully finalized: 20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_637d2428.png
+2026-01-10 22:29:09 | INFO | No personal data stored beyond processing window
+2026-01-10 22:29:09 | INFO | Processing time: 133 ms (cuda:0)
+2026-01-10 22:29:09 | INFO | ✔ Image processed successfully
+2026-01-10 22:29:09 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:29:09 | INFO | ▶ Processing image: original_20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_fe9adef1.png
+2026-01-10 22:29:09 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:29:09 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\original_20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_fe9adef1.png to 20260110_222909_243_original_20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_20260110_210423_743_original_fe9adef1.png
+2026-01-10 22:29:09 | INFO | Copying original to output: 20260110_222909_243_original_20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_3ab97dfe.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\encrypted_originals\original_20260110_222909_243_original_20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_3ab97dfe.png
+2026-01-10 22:29:09 | INFO | Original stored in encrypted_originals
+2026-01-10 22:29:09 | INFO | Image 20260110_222909_243_original_20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_3ab97dfe.png is in .png format. Conversion not required
+2026-01-10 22:29:09 | INFO | Stripping metadata from 20260110_222909_243_original_20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_3ab97dfe.png
+2026-01-10 22:29:09 | INFO | ✓ Metadata removed for 20260110_222909_243_original_20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_3ab97dfe.png
+2026-01-10 22:29:09 | INFO | Original metadata stripped
+2026-01-10 22:29:09 | INFO | Detected 4 face(s) in 20260110_222909_243_original_20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_3ab97dfe.png.
+2026-01-10 22:29:09 | INFO | Face detection | Time: 91 ms | Device: cuda:0
+2026-01-10 22:29:09 | INFO | Plate detection | Time: 76 ms | Device: cuda:0
+2026-01-10 22:29:09 | INFO | Detected regions: faces=4, plates=1
+2026-01-10 22:29:09 | INFO | Personal data detected: yes
+2026-01-10 22:29:09 | INFO | Processing image 20260110_222909_243_original_20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_3ab97dfe.png for blur
+2026-01-10 22:29:09 | INFO | Image anonymized successfully | Blur time: 0.14 s
+2026-01-10 22:29:09 | INFO | Moving anonymized image: 20260110_222909_243_original_20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_3ab97dfe.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\anonimized\20260110_222909_243_original_20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_3ab97dfe.png
+2026-01-10 22:29:09 | INFO | ✓ Successfully finalized: 20260110_222909_243_original_20260110_222837_642_original_20260110_220239_420_original_20260110_213720_334_original_20260110_213439_090_original_20260110_212952_098_original_3ab97dfe.png
+2026-01-10 22:29:09 | INFO | No personal data stored beyond processing window
+2026-01-10 22:29:09 | INFO | Processing time: 627 ms (cuda:0)
+2026-01-10 22:29:09 | INFO | ✔ Image processed successfully
+2026-01-10 22:29:09 | INFO | Batch completed | Images processed: 2 | Total time: 762 ms
+2026-01-10 22:33:49 | INFO | Agent shutting down
+2026-01-10 22:34:05 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:34:05 | INFO | ▶ Agent started
+2026-01-10 22:34:05 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:34:05 | INFO | Ultralytics package version: 8.3.235
+2026-01-10 22:34:05 | INFO | CUDA available: True | GPU: NVIDIA GeForce RTX 4070 (index 0)
+2026-01-10 22:34:05 | INFO | Inference device selected: GPU
+2026-01-10 22:34:05 | INFO | 
+2026-01-10 22:34:05 | INFO | YOLOv8-Face initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2026-01-10 22:34:05 | INFO | YOLOv8-Face weights loaded: yolov8n-face.pt
+2026-01-10 22:34:05 | INFO | Model loaded on device: cuda:0 (NVIDIA GeForce RTX 4070)
+2026-01-10 22:34:05 | INFO | 
+2026-01-10 22:34:05 | INFO | YOLOv8-LicensePlate initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2026-01-10 22:34:05 | INFO | YOLOv8-LicensePlate weights loaded: yolov8n-license-plate.pt
+2026-01-10 22:34:05 | INFO | Model loaded on device: cuda:0 (NVIDIA GeForce RTX 4070)
+2026-01-10 22:34:05 | INFO | 
+2026-01-10 22:34:05 | INFO | Detection models loaded (YOLOv8-Face, YOLOv8-LicensePlate)
+2026-01-10 22:34:05 | INFO | Detection confidence threshold (face): 0.25
+2026-01-10 22:34:05 | INFO | Detection confidence threshold (plate): 0.25
+2026-01-10 22:34:05 | INFO | Originals encryption: disabled
+2026-01-10 22:34:05 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:34:05 | INFO | ✅ Agent setup completed
+2026-01-10 22:34:05 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:34:20 | INFO | Found 2 image(s). Processing...
+2026-01-10 22:34:20 | INFO | System resource usage | CPU 1.2% | RAM 12667 MB/16125 MB (78.6%)
+2026-01-10 22:34:20 | INFO | Agent resource usage | CPU 0.0% | RAM 502 MB
+2026-01-10 22:34:20 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:34:20 | INFO | ▶ Processing image: original_20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_f25b9b7b.png
+2026-01-10 22:34:20 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:34:20 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\original_20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_f25b9b7b.png to 20260110_223420_672_original_20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_20260110_210422_850_original_f25b9b7b.png
+2026-01-10 22:34:20 | INFO | Copying original to output: 20260110_223420_672_original_20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_c74733cf.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\encrypted_originals\original_20260110_223420_672_original_20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_c74733cf.png
+2026-01-10 22:34:20 | INFO | Original stored in encrypted_originals
+2026-01-10 22:34:20 | INFO | Image 20260110_223420_672_original_20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_c74733cf.png is in .png format. Conversion not required
+2026-01-10 22:34:20 | INFO | Stripping metadata from 20260110_223420_672_original_20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_c74733cf.png
+2026-01-10 22:34:20 | INFO | ✓ Metadata removed for 20260110_223420_672_original_20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_c74733cf.png
+2026-01-10 22:34:20 | INFO | Original metadata stripped
+2026-01-10 22:34:21 | INFO | Detection | face | bbox=(512,125,36,50) | conf=0.777
+2026-01-10 22:34:21 | INFO | Detection | face | bbox=(388,235,37,54) | conf=0.769
+2026-01-10 22:34:21 | INFO | Detection | face | bbox=(631,253,41,55) | conf=0.746
+2026-01-10 22:34:21 | INFO | Detection | face | bbox=(217,62,41,69) | conf=0.736
+2026-01-10 22:34:21 | INFO | Detection | face | bbox=(871,189,33,49) | conf=0.713
+2026-01-10 22:34:21 | INFO | Detected 5 face(s) in 20260110_223420_672_original_20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_c74733cf.png.
+2026-01-10 22:34:21 | INFO | Face detection | Time: 575 ms | Device: cuda:0
+2026-01-10 22:34:21 | INFO | Plate detection | Time: 61 ms | Device: cuda:0
+2026-01-10 22:34:21 | INFO | Detected regions: faces=5, plates=0
+2026-01-10 22:34:21 | INFO | Personal data detected: yes
+2026-01-10 22:34:21 | INFO | Processing image 20260110_223420_672_original_20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_c74733cf.png for blur
+2026-01-10 22:34:21 | INFO | Image anonymized successfully | Blur time: 0.04 s
+2026-01-10 22:34:21 | INFO | Moving anonymized image: 20260110_223420_672_original_20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_c74733cf.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\anonimized\20260110_223420_672_original_20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_c74733cf.png
+2026-01-10 22:34:21 | INFO | ✓ Successfully finalized: 20260110_223420_672_original_20260110_221511_854_original_20260110_220238_299_original_20260110_213720_049_original_20260110_213438_164_original_20260110_212951_198_original_c74733cf.png
+2026-01-10 22:34:21 | INFO | No personal data stored beyond processing window
+2026-01-10 22:34:21 | INFO | Processing time: 818 ms (cuda:0)
+2026-01-10 22:34:21 | INFO | ✔ Image processed successfully
+2026-01-10 22:34:21 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:34:21 | INFO | ▶ Processing image: original_20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_637d2428.png
+2026-01-10 22:34:21 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:34:21 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\original_20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_637d2428.png to 20260110_223421_490_original_20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_20260110_210424_448_original_637d2428.png
+2026-01-10 22:34:21 | INFO | Copying original to output: 20260110_223421_490_original_20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_55ce31c4.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\encrypted_originals\original_20260110_223421_490_original_20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_55ce31c4.png
+2026-01-10 22:34:21 | INFO | Original stored in encrypted_originals
+2026-01-10 22:34:21 | INFO | Image 20260110_223421_490_original_20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_55ce31c4.png is in .png format. Conversion not required
+2026-01-10 22:34:21 | INFO | Stripping metadata from 20260110_223421_490_original_20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_55ce31c4.png
+2026-01-10 22:34:21 | INFO | ✓ Metadata removed for 20260110_223421_490_original_20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_55ce31c4.png
+2026-01-10 22:34:21 | INFO | Original metadata stripped
+2026-01-10 22:34:21 | INFO | Detected 0 face(s) in 20260110_223421_490_original_20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_55ce31c4.png.
+2026-01-10 22:34:21 | INFO | Face detection | Time: 23 ms | Device: cuda:0
+2026-01-10 22:34:21 | INFO | Detection | plate | bbox=(36,112,463,196) | conf=0.676
+2026-01-10 22:34:21 | INFO | Plate detection | Time: 16 ms | Device: cuda:0
+2026-01-10 22:34:21 | INFO | Detected regions: faces=0, plates=1
+2026-01-10 22:34:21 | INFO | Personal data detected: yes
+2026-01-10 22:34:21 | INFO | Processing image 20260110_223421_490_original_20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_55ce31c4.png for blur
+2026-01-10 22:34:21 | INFO | Image anonymized successfully | Blur time: 0.01 s
+2026-01-10 22:34:21 | INFO | Moving anonymized image: 20260110_223421_490_original_20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_55ce31c4.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\anonimized\20260110_223421_490_original_20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_55ce31c4.png
+2026-01-10 22:34:21 | INFO | ✓ Successfully finalized: 20260110_223421_490_original_20260110_222909_110_original_20260110_220240_094_original_20260110_213720_996_original_20260110_213439_751_original_20260110_212952_773_original_55ce31c4.png
+2026-01-10 22:34:21 | INFO | No personal data stored beyond processing window
+2026-01-10 22:34:21 | INFO | Processing time: 91 ms (cuda:0)
+2026-01-10 22:34:21 | INFO | ✔ Image processed successfully
+2026-01-10 22:34:21 | INFO | Batch completed | Images processed: 2 | Total time: 911 ms
+2026-01-10 22:38:06 | INFO | Agent shutting down
+2026-01-10 22:39:04 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:39:04 | INFO | ▶ Agent started
+2026-01-10 22:39:04 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:39:04 | INFO | Ultralytics package version: 8.3.235
+2026-01-10 22:39:04 | INFO | CUDA available: True | GPU: NVIDIA GeForce RTX 4070 (index 0)
+2026-01-10 22:39:04 | INFO | Inference device selected: GPU
+2026-01-10 22:39:04 | INFO | 
+2026-01-10 22:39:04 | INFO | YOLOv8-Face initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2026-01-10 22:39:05 | INFO | YOLOv8-Face weights loaded: yolov8n-face.pt
+2026-01-10 22:39:05 | INFO | Model loaded on device: cuda:0 (NVIDIA GeForce RTX 4070)
+2026-01-10 22:39:05 | INFO | 
+2026-01-10 22:39:05 | INFO | YOLOv8-LicensePlate initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2026-01-10 22:39:05 | INFO | YOLOv8-LicensePlate weights loaded: yolov8n-license-plate.pt
+2026-01-10 22:39:05 | INFO | Model loaded on device: cuda:0 (NVIDIA GeForce RTX 4070)
+2026-01-10 22:39:05 | INFO | 
+2026-01-10 22:39:05 | INFO | Detection models loaded (YOLOv8-Face, YOLOv8-LicensePlate)
+2026-01-10 22:39:05 | INFO | Detection confidence threshold (face): 0.25
+2026-01-10 22:39:05 | INFO | Detection confidence threshold (plate): 0.25
+2026-01-10 22:39:05 | INFO | Originals encryption: disabled
+2026-01-10 22:39:05 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:39:05 | INFO | ✅ Agent setup completed
+2026-01-10 22:39:05 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:43:30 | INFO | Agent shutting down
+2026-01-10 22:46:25 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:46:25 | INFO | ▶ Agent started
+2026-01-10 22:46:25 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:46:25 | INFO | Ultralytics package version: 8.3.235
+2026-01-10 22:46:25 | INFO | CUDA available: True | GPU: NVIDIA GeForce RTX 4070 (index 0)
+2026-01-10 22:46:25 | INFO | Inference device selected: GPU
+2026-01-10 22:46:25 | INFO | 
+2026-01-10 22:46:25 | INFO | YOLOv8-Face initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2026-01-10 22:46:25 | INFO | YOLOv8-Face weights loaded: yolov8n-face.pt
+2026-01-10 22:46:25 | INFO | Model loaded on device: cuda:0 (NVIDIA GeForce RTX 4070)
+2026-01-10 22:46:25 | INFO | 
+2026-01-10 22:46:25 | INFO | YOLOv8-LicensePlate initializing. Monitoring: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input
+2026-01-10 22:46:25 | INFO | YOLOv8-LicensePlate weights loaded: yolov8n-license-plate.pt
+2026-01-10 22:46:25 | INFO | Model loaded on device: cuda:0 (NVIDIA GeForce RTX 4070)
+2026-01-10 22:46:25 | INFO | 
+2026-01-10 22:46:25 | INFO | Detection models loaded (YOLOv8-Face, YOLOv8-LicensePlate)
+2026-01-10 22:46:25 | INFO | Detection confidence threshold (face) : 0.25
+2026-01-10 22:46:25 | INFO | Detection confidence threshold (plate): 0.25
+2026-01-10 22:46:25 | INFO | Originals encryption: enabled
+2026-01-10 22:46:25 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:46:25 | INFO | ✅ Agent setup completed
+2026-01-10 22:46:25 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:46:35 | INFO | Found 1 image(s). Processing...
+2026-01-10 22:46:35 | INFO | System resource usage | CPU 2.5% | RAM 13109 MB/16125 MB (81.3%)
+2026-01-10 22:46:35 | INFO | Agent resource usage | CPU 0.0% | RAM 503 MB
+2026-01-10 22:46:35 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:46:35 | INFO | ▶ Processing image: image1.png
+2026-01-10 22:46:35 | INFO | ════════════════════════════════════════════════════════════
+2026-01-10 22:46:35 | INFO | Renamed: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_input\image1.png to 20260110_224635_824_image1.png
+2026-01-10 22:46:35 | INFO | Encrypting original to: D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\encrypted_originals\original_20260110_224635_824_image1.png.enc
+2026-01-10 22:46:35 | INFO | Original image encrypted successfully
+2026-01-10 22:46:35 | INFO | Original stored in encrypted_originals
+2026-01-10 22:46:35 | INFO | Image 20260110_224635_824_image1.png is in .png format. Conversion not required
+2026-01-10 22:46:35 | INFO | Stripping metadata from 20260110_224635_824_image1.png
+2026-01-10 22:46:36 | INFO | ✓ Metadata removed for 20260110_224635_824_image1.png
+2026-01-10 22:46:36 | INFO | Original metadata stripped
+2026-01-10 22:46:36 | INFO | Detection | face | bbox=(555,493,173,209) | conf=0.807
+2026-01-10 22:46:36 | INFO | Detection | face | bbox=(1190,580,197,274) | conf=0.802
+2026-01-10 22:46:36 | INFO | Detection | face | bbox=(1143,211,233,322) | conf=0.769
+2026-01-10 22:46:36 | INFO | Detection | face | bbox=(765,329,201,280) | conf=0.742
+2026-01-10 22:46:36 | INFO | Detected 4 face(s) in 20260110_224635_824_image1.png.
+2026-01-10 22:46:36 | INFO | Face detection | Time: 601 ms | Device: cuda:0
+2026-01-10 22:46:36 | INFO | Detection | plate | bbox=(16,1295,161,61) | conf=0.433
+2026-01-10 22:46:36 | INFO | Plate detection | Time: 124 ms | Device: cuda:0
+2026-01-10 22:46:36 | INFO | Detected regions: faces=4, plates=1
+2026-01-10 22:46:36 | INFO | Personal data detected: yes
+2026-01-10 22:46:36 | INFO | Blurring image 20260110_224635_824_image1.png
+2026-01-10 22:46:37 | INFO | Image anonymized successfully | Blur time: 0.14 s
+2026-01-10 22:46:37 | INFO | Moving anonymized image: 20260110_224635_824_image1.png -> D:\Repos\LESI_Projeto_RGPD_Face_Detection\image_output\anonimized\20260110_224635_824_image1.png
+2026-01-10 22:46:37 | INFO | ✓ Successfully finalized: 20260110_224635_824_image1.png
+2026-01-10 22:46:37 | INFO | No personal data stored beyond processing window
+2026-01-10 22:46:37 | INFO | Processing time: 1238 ms (cuda:0)
+2026-01-10 22:46:37 | INFO | ✔ Image processed successfully
+2026-01-10 22:46:37 | INFO | Batch completed | Images processed: 1 | Total time: 1239 ms
+2026-01-10 22:47:37 | INFO | Agent shutting down

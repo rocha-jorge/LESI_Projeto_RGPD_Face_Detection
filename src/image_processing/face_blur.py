@@ -73,12 +73,11 @@ def face_blur(img_file: Path, faces: list | None = None) -> bool:
 
     # Overwrite the processing copy in image_output
     output_path = img_file
-    logging.info(f"Processing image {img_file.name} for blur")
+    logging.info(f"Blurring image {img_file.name}")
     try:
         _apply_blur(img_file, output_path, faces)
-        logging.info(f"Anonymized image saved to {output_path.name}")
         elapsed_time = time.time() - start_time
-        logging.info(f"✓ Blur completed in {elapsed_time:.2f} seconds")
+        logging.info(f"Image anonymized successfully | Blur time: {elapsed_time:.2f} s")
         return True
     except Exception:
         logging.error(f"Error processing {img_file.name} during blur", exc_info=True)

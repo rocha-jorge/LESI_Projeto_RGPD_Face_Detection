@@ -13,12 +13,15 @@ IMAGE_ERROR = Path(os.environ.get("IMAGE_ERROR") or (PROJECT_ROOT / "image_error
 
 # Log directory
 LOG_DIR = PROJECT_ROOT / "logs"
-LOG_FILE = LOG_DIR / "log_registry.log"
+LOG_FILE = LOG_DIR / "watcher.log"
 
 # Ensure standard directories exist
 def ensure_dirs() -> None:
     """Create standard directories if they don't exist."""
     IMAGE_INPUT.mkdir(parents=True, exist_ok=True)
     IMAGE_OUTPUT.mkdir(parents=True, exist_ok=True)
+    # New structured subfolders inside IMAGE_OUTPUT
+    (IMAGE_OUTPUT / "encrypted_originals").mkdir(parents=True, exist_ok=True)
+    (IMAGE_OUTPUT / "anonimized").mkdir(parents=True, exist_ok=True)
     IMAGE_ERROR.mkdir(parents=True, exist_ok=True)
     LOG_DIR.mkdir(parents=True, exist_ok=True)

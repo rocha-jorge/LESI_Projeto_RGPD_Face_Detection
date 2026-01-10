@@ -40,7 +40,7 @@ def process_image(
     # 2) Copy original to output
     if not copy_original_to_output(img):
         return False
-    logging.info("Original image copied to secure output area")
+    logging.info("Original stored in encrypted_originals")
     # Metrics suppressed
 
     # 3) Convert if needed (BMP/GIF -> JPEG)
@@ -61,9 +61,11 @@ def process_image(
     if not ok:
         return False
     face_elapsed = time.perf_counter() - face_start
-    # Performance log for face model
+    # Performance log for face model (unified format)
     device_str = str(getattr(model, "device", "cpu"))
-    logging.info(f"Face detection time: {int(face_elapsed*1000)} ms ({device_str})")
+    logging.info(
+        f"Face detection | Time: {int(face_elapsed*1000)} ms | Device: {device_str}"
+    )
     # Metrics suppressed
 
     # 6) Detect license plates (returns list of boxes)
@@ -73,7 +75,9 @@ def process_image(
         plates = detect_license_plates_on_image(img, lp_model)
         plate_elapsed = time.perf_counter() - plate_start
         lp_device_str = str(getattr(lp_model, "device", "cpu"))
-        logging.info(f"Plate detection time: {int(plate_elapsed*1000)} ms ({lp_device_str})")
+        logging.info(
+            f"Plate detection | Time: {int(plate_elapsed*1000)} ms | Device: {lp_device_str}"
+        )
     except Exception:
         logging.error(f"Could not evaluate license plate detection for {img.name}", exc_info=True)
         return False
@@ -92,7 +96,6 @@ def process_image(
         logging.info("Personal data detected: yes")
         if not blur_faces(img, combined_regions):
             return False
-        logging.info("Image anonymized successfully")
     else:
         # Explicit clean-image logs for RGPD auditing
         logging.info("Personal data detected: no")

@@ -4,3 +4,4 @@ Pillow
 piexif
 torch
 psutil
+cryptography

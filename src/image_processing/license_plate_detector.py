@@ -49,9 +49,19 @@ def detect_license_plates_on_image(img_path: Path, model: YOLO) -> list[tuple[in
                     f"Ultralytics inference stats: preprocess={pp:.1f}ms inference={inf:.1f}ms postprocess={post:.1f}ms"
                 )
         boxes = result.boxes.xyxy.cpu().numpy()
-        for box in boxes:
+        confs = None
+        try:
+            confs = result.boxes.conf.cpu().numpy().reshape(-1)
+        except Exception:
+            confs = None
+        for idx, box in enumerate(boxes):
             x1, y1, x2, y2 = map(int, box)
-            plates.append((x1, y1, x2 - x1, y2 - y1))
+            w, h = x2 - x1, y2 - y1
+            conf = float(confs[idx]) if confs is not None and idx < len(confs) else 0.0
+            plates.append((x1, y1, w, h))
+            logging.info(
+                f"Detection | plate | bbox=({x1},{y1},{w},{h}) | conf={conf:.3f}"
+            )
     return plates
 
 
@@ -60,8 +70,6 @@ def detect_license_plates(model: YOLO, image_paths: Iterable[Path]) -> None:
         logging.info("=" * 60)
         logging.info(f"Running license plate detection on {img_path.name}")
         plates = detect_license_plates_on_image(img_path, model)
-        for (x, y, w, h) in plates:
-            logging.info(f"Plate: x={x}, y={y}, w={w}, h={h}")
 
         if not plates:
             logging.info("No license plates detected.")

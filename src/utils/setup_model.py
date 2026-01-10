@@ -84,9 +84,6 @@ def _move_model_to_device(model: YOLO) -> None:
         if torch.cuda.is_available():
             try:
                 model.to("cuda")
-                logging.info(
-                    f"Model moved to cuda:0 | GPU: {torch.cuda.get_device_name(torch.cuda.current_device())}"
-                )
             except Exception:
                 logging.warning("Failed to move model to CUDA; staying on CPU.", exc_info=True)
         else:
@@ -106,7 +103,14 @@ def setup_model(model_key: str = DEFAULT_MODEL_KEY, input_dir: Path = IMAGE_INPU
     logging.info(f"{config.display_name} weights loaded: {config.weights_path.name}")
     _move_model_to_device(model)
     device_str = str(getattr(model, "device", "cpu"))
-    logging.info(f"Model device in use: {device_str}")
+    try:
+        if "cuda" in device_str and torch.cuda.is_available():
+            gpu_name = torch.cuda.get_device_name(torch.cuda.current_device())
+            logging.info(f"Model loaded on device: {device_str} ({gpu_name})")
+        else:
+            logging.info(f"Model loaded on device: {device_str}")
+    except Exception:
+        logging.info(f"Model loaded on device: {device_str}")
     # Visual separation between model initialization blocks
     logging.info("")
     _MODEL_CACHE[model_key] = model

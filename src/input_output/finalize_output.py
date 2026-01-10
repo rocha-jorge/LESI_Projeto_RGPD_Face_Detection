@@ -11,7 +11,7 @@ def move_anon_image_to_output(img: Path) -> bool:
     Returns True on success, False otherwise.
     """
     try:
-        destination = IMAGE_OUTPUT / img.name
+        destination = IMAGE_OUTPUT / "anonimized" / img.name
         logging.info(f"Moving anonymized image: {img.name} -> {destination}")
         img.replace(destination)
         logging.info(f"✓ Successfully finalized: {img.name}")

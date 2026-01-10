@@ -58,6 +58,9 @@ def detector_face(img_file: Path, model: YOLO) -> list[tuple[int, int, int, int,
             w, h = x2 - x1, y2 - y1
             conf = float(confs[idx]) if confs is not None and idx < len(confs) else 0.0
             faces_coords.append((int(x1), int(y1), int(w), int(h), conf))
+            logging.info(
+                f"Detection | face | bbox=({int(x1)},{int(y1)},{int(w)},{int(h)}) | conf={conf:.3f}"
+            )
 
     logging.info(f"Detected {len(faces_coords)} face(s) in {img_file.name}.")
     return faces_coords

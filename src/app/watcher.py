@@ -78,7 +78,9 @@ def main():
 
     # Initialize logging
     _init_logging()
-    logging.info("Agent started")
+    logging.info("" + "═" * 60)
+    logging.info("▶ Agent started")
+    logging.info("" + "═" * 60)
 
     # One-time runtime environment logs
     try:
@@ -112,8 +114,29 @@ def main():
             return default
     face_thr = _read_thr("FACE_CONF_THRESHOLD", 0.25)
     plate_thr = _read_thr("PLATE_CONF_THRESHOLD", 0.25)
-    logging.info(f"Detection confidence threshold (face): {face_thr}")
+    logging.info(f"Detection confidence threshold (face) : {face_thr}")
     logging.info(f"Detection confidence threshold (plate): {plate_thr}")
+
+    # Report originals encryption status with reason
+    try:
+        from input_output.encrypt_original import get_hardcoded_password
+        password = get_hardcoded_password()
+        if password:
+            try:
+                import importlib
+                importlib.import_module('cryptography.hazmat.primitives.ciphers.aead')
+                logging.info("Originals encryption: enabled")
+            except Exception:
+                logging.info("Originals encryption: disabled (missing cryptography)")
+        else:
+            logging.info("Originals encryption: disabled (no password)")
+    except Exception:
+        logging.info("Originals encryption: unknown")
+
+    # Highly visible setup completion banner
+    logging.info("" + "═" * 60)
+    logging.info("✅ Agent setup completed")
+    logging.info("" + "═" * 60)
 
     while not stop_requested:
         try:
