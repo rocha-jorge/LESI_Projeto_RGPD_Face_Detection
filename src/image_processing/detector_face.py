@@ -44,7 +44,7 @@ def detector_face(img_file: Path, model: YOLO) -> list[tuple[int, int, int, int,
             post = spd.get("postprocess")
             if pp is not None and inf is not None and post is not None:
                 logging.debug(
-                    f"DEBUG | Ultralytics inference stats: preprocess={pp:.1f}ms inference={inf:.1f}ms postprocess={post:.1f}ms"
+                    f"Ultralytics inference stats: preprocess={pp:.1f}ms inference={inf:.1f}ms postprocess={post:.1f}ms"
                 )
     faces_coords: list[tuple[int, int, int, int, float]] = []
     for result in results:

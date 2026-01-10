@@ -46,7 +46,7 @@ def detect_license_plates_on_image(img_path: Path, model: YOLO) -> list[tuple[in
             post = spd.get("postprocess")
             if pp is not None and inf is not None and post is not None:
                 logging.debug(
-                    f"DEBUG | Ultralytics inference stats: preprocess={pp:.1f}ms inference={inf:.1f}ms postprocess={post:.1f}ms"
+                    f"Ultralytics inference stats: preprocess={pp:.1f}ms inference={inf:.1f}ms postprocess={post:.1f}ms"
                 )
         boxes = result.boxes.xyxy.cpu().numpy()
         for box in boxes:

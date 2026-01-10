@@ -86,15 +86,17 @@ def process_image(
         combined_regions.extend(plates)
 
     personal_data_detected = bool(combined_regions)
-    logging.info(f"Personal data detected: {'yes' if personal_data_detected else 'no'}")
     logging.info(f"Detected regions: faces={len(faces) if faces else 0}, plates={len(plates) if plates else 0}")
 
     if combined_regions:
+        logging.info("Personal data detected: yes")
         if not blur_faces(img, combined_regions):
             return False
         logging.info("Image anonymized successfully")
     else:
-        logging.info(f"No faces or license plates reported for {img.name}. Skipping blur")
+        # Explicit clean-image logs for RGPD auditing
+        logging.info("Personal data detected: no")
+        logging.info("Image passed without anonymization")
 
     # 8) Move anonymized file to output
     if not move_anon_image_to_output(img):
@@ -105,5 +107,5 @@ def process_image(
     elapsed = time.perf_counter() - start_ts
     hw = device_str if personal_data_detected else str(getattr(model, "device", "cpu"))
     logging.info(f"Processing time: {int(elapsed*1000)} ms ({hw})")
-    logging.info("Image processed")
+    logging.info("✔ Image processed successfully")
     return True

@@ -35,6 +35,7 @@ import time
 import signal
 import logging
 import sys
+import torch
 from pathlib import Path
 
 # Ensure 'src' is on the Python path for absolute imports like 'utils.*'
@@ -44,7 +45,8 @@ if str(SRC_ROOT) not in sys.path:
 
 from utils.logging_setup import init_logging
 from utils.paths import *
-from utils.setup_model import setup_model
+from utils.setup_model import setup_model, log_cuda_status
+import ultralytics as ul
 from image_processing.list_images import list_images
 from app.image_processing_pipeline import process_image
 from input_output.handle_unsupported_files import handle_unsupported_file
@@ -76,32 +78,30 @@ def main():
 
     # Initialize logging
     _init_logging()
-    logging.info("INFO | Agent started")
+    logging.info("Agent started")
+
+    # One-time runtime environment logs
+    try:
+        logging.info(f"Ultralytics package version: {ul.__version__}")
+    except Exception:
+        pass
+    log_cuda_status()
+    logging.info(f"Inference device selected: {'GPU' if torch.cuda.is_available() else 'CPU'}")
+    logging.info("")
 
     # Ensure required directories exist before starting
-    t0 = time.perf_counter()
     ensure_dirs()
-    logging.debug(f"DEBUG | Startup step: ensure_dirs completed in {int((time.perf_counter()-t0)*1000)} ms")
 
     # Setup environment, model and hardware
-    t1 = time.perf_counter()
     model = setup_model()
-    logging.info(f"INFO | Face model setup time: {int((time.perf_counter()-t1)*1000)} ms")
     # Preload secondary model for clear lifecycle logging and reduced cold-start
     try:
-        t2 = time.perf_counter()
         setup_model("license_plate")
-        logging.info("INFO | Detection models loaded (YOLOv8-Face, YOLOv8-LicensePlate)")
-        logging.info(f"INFO | Plate model preload time: {int((time.perf_counter()-t2)*1000)} ms")
+        logging.info("Detection models loaded (YOLOv8-Face, YOLOv8-LicensePlate)")
     except Exception:
-        logging.warning("WARNING | Could not preload license plate model; it will be loaded on demand.")
+        logging.warning("Could not preload license plate model; it will be loaded on demand.")
 
-    # Log inference device selection (face model)
-    try:
-        device_str = str(getattr(model, "device", "cpu"))
-        logging.info(f"INFO | Inference device selected: {'GPU' if 'cuda' in device_str else 'CPU'}")
-    except Exception:
-        logging.warning("WARNING | Unable to determine inference device.")
+    # (Already logged selection above; skip duplicate per-model device selection)
 
     # Log detection thresholds (from env or defaults)
     def _read_thr(name: str, default: float) -> float:
@@ -112,8 +112,8 @@ def main():
             return default
     face_thr = _read_thr("FACE_CONF_THRESHOLD", 0.25)
     plate_thr = _read_thr("PLATE_CONF_THRESHOLD", 0.25)
-    logging.info(f"INFO | Detection confidence threshold (face): {face_thr}")
-    logging.info(f"INFO | Detection confidence threshold (plate): {plate_thr}")
+    logging.info(f"Detection confidence threshold (face): {face_thr}")
+    logging.info(f"Detection confidence threshold (plate): {plate_thr}")
 
     while not stop_requested:
         try:
@@ -127,13 +127,13 @@ def main():
             
             # If images found
             if images:
-                logging.info(f"INFO | Found {len(images)} image(s). Processing...")
+                logging.info(f"Found {len(images)} image(s). Processing...")
                 log_resources_snapshot()                                            # Log a snapshot of system/process resource usage before processing batch
                 batch_start = time.perf_counter()
                 for img in images:                                                  # Process each image
                     process_image(img, model)
                 batch_elapsed_ms = int((time.perf_counter() - batch_start) * 1000)
-                logging.info(f"INFO | Batch completed | Images processed: {len(images)} | Total time: {batch_elapsed_ms} ms")
+                logging.info(f"Batch completed | Images processed: {len(images)} | Total time: {batch_elapsed_ms} ms")
           
             # After processing supported images, handle unsupported files
             if unsupported_files:
@@ -147,7 +147,7 @@ def main():
             logging.error("Watcher error", exc_info=True)
             time.sleep(POLL_INTERVAL)             # Even on unexpected errors, keep polling after a short delay
 
-    logging.info("INFO | Agent shutting down")
+    logging.info("Agent shutting down")
 
 if __name__ == "__main__":
     main()

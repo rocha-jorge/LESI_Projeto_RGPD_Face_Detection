@@ -6,9 +6,6 @@ import logging
 from ultralytics import YOLO
 from utils.paths import IMAGE_INPUT, PROJECT_ROOT
 import torch
-
-def log_cuda_status() -> None:
-    """Log one-time CUDA/GPU availability and GPU name if present."""
 FACE_URL = (
     "https://github.com/akanametov/yolov8-face/releases/download/v0.0.0/yolov8n-face.pt"
 )
@@ -93,28 +90,25 @@ def _move_model_to_device(model: YOLO) -> None:
             except Exception:
                 logging.warning("Failed to move model to CUDA; staying on CPU.", exc_info=True)
         else:
-            logging.info("CUDA not available; using CPU.")
+            logging.warning("GPU unavailable. Falling back to CPU inference")
     except Exception:  # pragma: no cover - best-effort logging only
         logging.warning("Unable to determine or set model device.", exc_info=True)
 
 def setup_model(model_key: str = DEFAULT_MODEL_KEY, input_dir: Path = IMAGE_INPUT) -> YOLO:
     """Initialize and return a YOLO model for the requested key."""
     config = _get_model_config(model_key)
-    # Return cached model if available (still log weights for visibility)
+    # Return cached model if available (avoid re-logging weights per image)
     cached = _MODEL_CACHE.get(model_key)
     if cached is not None:
-        try:
-            logging.info(f"INFO | {config.display_name} weights: {config.weights_path.name}")
-        except Exception:
-            pass
         return cached
     logging.info(f"{config.display_name} initializing. Monitoring: {input_dir}")
-    log_cuda_status()
     model = _prepare_weights(config)
-    logging.info(f"INFO | {config.display_name} weights: {config.weights_path.name}")
+    logging.info(f"{config.display_name} weights loaded: {config.weights_path.name}")
     _move_model_to_device(model)
     device_str = str(getattr(model, "device", "cpu"))
     logging.info(f"Model device in use: {device_str}")
+    # Visual separation between model initialization blocks
+    logging.info("")
     _MODEL_CACHE[model_key] = model
     return model
     # If model weights are not present, downloads YOLOv8-Face and saves them.

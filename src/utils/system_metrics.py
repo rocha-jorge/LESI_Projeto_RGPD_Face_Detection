@@ -31,14 +31,23 @@ def get_resources_snapshot(sample_interval: float = 0.1) -> dict:
         "sys_ram_mb": float(s_mem),
     }
 
-def log_resources_snapshot(prefix: str = "Batch resources", sample_interval: float = 0.1) -> None:
-    """Log a single formatted snapshot of process/system usage via logging.info.
+def log_resources_snapshot(
+    prefix: str = "System resource usage",
+    sample_interval: float = 0.1,
+) -> None:
+    """Log a formatted snapshot of system and current-process usage as two lines.
 
-    Example output:
-    "Batch resources | Proc CPU: 0.0% | Proc RAM: 225.3 MB | Sys CPU: 1.3% | Sys RAM: 13330 MB"
+    Line 1: "System resource usage | CPU 41.1% | RAM 495 MB/14942 MB (3.3%)"
+    Line 2: "Agent resource usage | CPU 2.4% | RAM 512 MB"
     """
     snap = get_resources_snapshot(sample_interval)
+    vm = psutil.virtual_memory()
+    used_mb = vm.used / (1024 * 1024)
+    total_mb = vm.total / (1024 * 1024)
     import logging
     logging.info(
-        f"{prefix} | Proc CPU: {snap['proc_cpu']:.1f}% | Proc RAM: {snap['proc_ram_mb']:.1f} MB | Sys CPU: {snap['sys_cpu']:.1f}% | Sys RAM: {snap['sys_ram_mb']:.0f} MB"
+        f"{prefix} | CPU {snap['sys_cpu']:.1f}% | RAM {used_mb:.0f} MB/{total_mb:.0f} MB ({vm.percent:.1f}%)"
+    )
+    logging.info(
+        f"Agent resource usage | CPU {snap['proc_cpu']:.1f}% | RAM {snap['proc_ram_mb']:.0f} MB"
     )
