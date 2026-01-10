@@ -13,23 +13,30 @@ from image_processing.face_blur import blur_faces
 from utils.setup_model import setup_model
 
 
+def detect_license_plates_on_image(img_path: Path, model: YOLO) -> list[tuple[int, int, int, int]]:
+    """Run license plate detection on a single image and return list of boxes (x,y,w,h)."""
+    plates: list[tuple[int, int, int, int]] = []
+    try:
+        results = model(str(img_path))
+    except Exception as exc:
+        logging.error(f"Model inference failed for {img_path.name}: {exc}", exc_info=True)
+        return plates
+
+    for result in results:
+        boxes = result.boxes.xyxy.cpu().numpy()
+        for box in boxes:
+            x1, y1, x2, y2 = map(int, box)
+            plates.append((x1, y1, x2 - x1, y2 - y1))
+    return plates
+
+
 def detect_license_plates(model: YOLO, image_paths: Iterable[Path]) -> None:
     for img_path in image_paths:
         logging.info("=" * 60)
         logging.info(f"Running license plate detection on {img_path.name}")
-        try:
-            results = model(str(img_path))
-        except Exception as exc:
-            logging.error(f"Model inference failed for {img_path.name}: {exc}", exc_info=True)
-            continue
-
-        plates = []
-        for result in results:
-            boxes = result.boxes.xyxy.cpu().numpy()
-            for box in boxes:
-                x1, y1, x2, y2 = map(int, box)
-                plates.append((x1, y1, x2 - x1, y2 - y1))
-                logging.info(f"Plate: x={x1}, y={y1}, w={x2 - x1}, h={y2 - y1}")
+        plates = detect_license_plates_on_image(img_path, model)
+        for (x, y, w, h) in plates:
+            logging.info(f"Plate: x={x}, y={y}, w={w}, h={h}")
 
         if not plates:
             logging.info("No license plates detected.")

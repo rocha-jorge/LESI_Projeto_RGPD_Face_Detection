@@ -91,6 +91,9 @@ def main():
             images = [p for p in all_files if p in set(list_images(IMAGE_INPUT))]
             unsupported_files = [p for p in all_files if p not in images]
             
+            # AQYUI CHAMO NAO SUPORTADO APENAS AQUELES NOS QUAIS NAO PODEM SER INCLUIDOS METADADOS
+            # MAS TALVEZ O MODELO SUPORTE, APESAR DE NAO SER POSSIVEL INCLUIR METADADOS
+            
             # If images found
             if images:
                 logging.info(f"Found {len(images)} image(s). Processing...")

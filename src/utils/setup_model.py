@@ -18,6 +18,9 @@ LICENSE_PLATE_URL = (
 
 DEFAULT_MODEL_KEY = "face"
 
+# Simple in-process cache to avoid reloading the same model repeatedly
+_MODEL_CACHE: dict[str, YOLO] = {}
+
 @dataclass(frozen=True)
 class ModelConfig:
     key: str
@@ -96,6 +99,11 @@ def _move_model_to_device(model: YOLO) -> None:
 
 def setup_model(model_key: str = DEFAULT_MODEL_KEY, input_dir: Path = IMAGE_INPUT) -> YOLO:
     """Initialize and return a YOLO model for the requested key."""
+    # Return cached model if available
+    cached = _MODEL_CACHE.get(model_key)
+    if cached is not None:
+        return cached
+
     config = _get_model_config(model_key)
     logging.info(f"{config.display_name} initializing. Monitoring: {input_dir}")
     log_cuda_status()
@@ -103,6 +111,7 @@ def setup_model(model_key: str = DEFAULT_MODEL_KEY, input_dir: Path = IMAGE_INPU
     _move_model_to_device(model)
     device_str = str(getattr(model, "device", "cpu"))
     logging.info(f"Model device in use: {device_str}")
+    _MODEL_CACHE[model_key] = model
     return model
     # If model weights are not present, downloads YOLOv8-Face and saves them.
 

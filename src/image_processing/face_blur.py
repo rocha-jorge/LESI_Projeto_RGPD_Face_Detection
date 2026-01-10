@@ -45,7 +45,8 @@ def _apply_blur(image_path, output_path, faces):
     if img is None:
         raise Exception("Could not read image")
     
-    for (x, y, w, h) in faces:
+    for face in faces:
+        x, y, w, h = face[:4]
         x2 = x + w
         y2 = y + h
         # Blur the face region
@@ -56,7 +57,7 @@ def _apply_blur(image_path, output_path, faces):
     
     cv2.imwrite(str(output_path), img)
 
-def face_blur(img_file: Path, faces: list[tuple[int, int, int, int]] | None = None) -> bool:
+def face_blur(img_file: Path, faces: list | None = None) -> bool:
     """Anonymize a single detected image.
     If `faces` is provided, uses them directly; otherwise, reads from EXIF.
     Returns True if anonymization succeeded, else False.
@@ -83,7 +84,7 @@ def face_blur(img_file: Path, faces: list[tuple[int, int, int, int]] | None = No
         logging.error(f"Error processing {img_file.name} during blur", exc_info=True)
         return False
 
-def blur_faces(img: Path, faces: list[tuple[int, int, int, int]] | None) -> bool:
+def blur_faces(img: Path, faces: list | None) -> bool:
     """Wrapper around face_blur returning success boolean; on failure, move to error."""
     try:
         return face_blur(img, faces)
